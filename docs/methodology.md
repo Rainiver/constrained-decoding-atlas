@@ -8,7 +8,7 @@ condition language-model outputs. It includes token-time constrained decoding
 as well as later lifecycle placements when they are necessary for a meaningful
 comparison of guarantees.
 
-Release `v0.1` is a **curated public preview**, not a systematic-review claim.
+The Atlas is a **curated public resource**, not a systematic-review claim.
 Counts describe this catalog snapshot and must not be interpreted as field-wide
 prevalence.
 
@@ -77,7 +77,7 @@ python3 scripts/generate_views.py
 python3 scripts/generate_site.py
 ```
 
-## Known limitations of v0.1
+## Known limitations
 
 - The discovery process is not yet exhaustive.
 - Most records are metadata-verified rather than fully coded.

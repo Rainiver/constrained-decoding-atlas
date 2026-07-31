@@ -8,69 +8,66 @@ This page reports what the current Atlas records—not the prevalence of propert
 |---|---:|---:|
 | Records | 49 | 100% |
 | Peer reviewed | 31 | 63% |
-| Full text screened or coded | 9 | 18% |
+| Full text screened or coded | 26 | 53% |
 | Linked code artifact | 11 | 22% |
 
 ## Constraint specifications
 
 | Label | Papers | Coverage |
 |---|---:|---:|
-| `syntax` | 37 | 76% |
+| `syntax` | 36 | 73% |
 | `schema` | 23 | 47% |
-| `semantic` | 21 | 43% |
+| `semantic` | 22 | 45% |
 | `lexical` | 10 | 20% |
 | `relation` | 6 | 12% |
-| `state` | 5 | 10% |
 | `type` | 5 | 10% |
+| `state` | 4 | 8% |
 | `policy` | 2 | 4% |
 
 ## Enforcement placement
 
 | Label | Papers | Coverage |
 |---|---:|---:|
-| `token` | 34 | 69% |
-| `multi_stage` | 19 | 39% |
-| `sequence` | 9 | 18% |
-| `field` | 3 | 6% |
+| `token` | 39 | 80% |
+| `multi_stage` | 21 | 43% |
+| `sequence` | 7 | 14% |
+| `field` | 4 | 8% |
 
 ## Guarantees claimed or established
 
 | Label | Papers | Coverage |
 |---|---:|---:|
-| `language_soundness` | 24 | 49% |
-| `distribution_fidelity` | 7 | 14% |
-| `token_reachable_coverage` | 3 | 6% |
-| `state_validity` | 2 | 4% |
-| `semantic_correctness` | 1 | 2% |
-| `termination` | 1 | 2% |
-| `type_soundness` | 1 | 2% |
-| `not_reported` | 16 | 33% |
+| `language_soundness` | 25 | 51% |
+| `distribution_fidelity` | 10 | 20% |
+| `semantic_correctness` | 2 | 4% |
+| `type_soundness` | 2 | 4% |
+| `token_reachable_coverage` | 2 | 4% |
+| `not_reported` | 14 | 29% |
 
 ## Systems measurements
 
 | Label | Papers | Coverage |
 |---|---:|---:|
-| `latency` | 29 | 59% |
-| `end_to_end_cost` | 12 | 24% |
-| `throughput` | 10 | 20% |
-| `compile_time` | 7 | 14% |
-| `tpot` | 5 | 10% |
+| `latency` | 24 | 49% |
+| `end_to_end_cost` | 15 | 31% |
+| `throughput` | 13 | 27% |
+| `compile_time` | 8 | 16% |
 | `batch_scaling` | 5 | 10% |
-| `cache_behavior` | 4 | 8% |
+| `tpot` | 4 | 8% |
 | `host_memory` | 3 | 6% |
-| `plan_memory` | 1 | 2% |
+| `cache_behavior` | 3 | 6% |
 | `device_memory` | 1 | 2% |
-| `not_reported` | 11 | 22% |
+| `not_reported` | 10 | 20% |
 
 ## Outcome measurements
 
 | Label | Papers | Coverage |
 |---|---:|---:|
 | `task_accuracy` | 39 | 80% |
-| `format_validity` | 30 | 61% |
+| `format_validity` | 28 | 57% |
 | `execution_accuracy` | 14 | 29% |
-| `distribution_divergence` | 8 | 16% |
+| `distribution_divergence` | 10 | 20% |
 | `schema_coverage` | 3 | 6% |
 | `user_outcome` | 2 | 4% |
-| `not_reported` | 1 | 2% |
+| `not_reported` | 2 | 4% |
 

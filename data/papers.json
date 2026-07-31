@@ -3,20 +3,43 @@
     "id": "garbacea-mei-2025",
     "title": "Why is constrained neural language generation particularly challenging?",
     "year": 2025,
-    "authors": ["Cristina Garbacea", "Qiaozhu Mei"],
+    "authors": [
+      "Cristina Garbacea",
+      "Qiaozhu Mei"
+    ],
     "venue": "TMLR",
     "publication_status": "peer_reviewed",
-    "study_type": ["survey"],
+    "study_type": [
+      "survey"
+    ],
     "url": "https://openreview.net/forum?id=Vwgjk5ysWn",
     "code_url": null,
-    "specification": ["lexical", "syntax", "semantic"],
-    "representation": ["framework_dependent"],
-    "allocation": ["framework_dependent"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["not_reported"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["not_reported"],
+    "specification": [
+      "lexical",
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "framework_dependent"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "not_reported"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "not_reported"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "Pilot full-text review: broad constrained-NLG survey spanning decoding, training, prompting, and evaluation; full taxonomy coding pending."
   },
@@ -24,20 +47,45 @@
     "id": "geng-et-al-2023-gcd",
     "title": "Grammar-Constrained Decoding for Structured NLP Tasks without Finetuning",
     "year": 2023,
-    "authors": ["Saibo Geng", "Martin Josifoski", "Maxime Peyrard", "Robert West"],
+    "authors": [
+      "Saibo Geng",
+      "Martin Josifoski",
+      "Maxime Peyrard",
+      "Robert West"
+    ],
     "venue": "EMNLP",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2023.emnlp-main.674/",
     "code_url": null,
-    "specification": ["syntax"],
-    "representation": ["cfg_parser"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Metadata and abstract checked; representation, guarantee assumptions, and measurements require full-text coding."
   },
@@ -45,41 +93,112 @@
     "id": "geng-et-al-2025-jsonschemabench",
     "title": "Generating Structured Outputs from Language Models: Benchmark and Studies",
     "year": 2025,
-    "authors": ["Saibo Geng", "Hudson Cooper", "Michal Moskal", "Samuel Jenkins", "Julian Berman", "Nathan Ranchin", "Robert West", "Eric Horvitz", "Harsha Nori"],
+    "authors": [
+      "Saibo Geng",
+      "Hudson Cooper",
+      "Michal Moskal",
+      "Samuel Jenkins",
+      "Julian Berman",
+      "Nathan Ranchin",
+      "Robert West",
+      "Eric Horvitz",
+      "Harsha Nori"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["benchmark", "evaluation"],
+    "study_type": [
+      "benchmark",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2501.10868",
     "code_url": "https://github.com/guidance-ai/jsonschemabench",
-    "specification": ["schema"],
-    "representation": ["framework_dependent", "provider_undisclosed"],
-    "allocation": ["framework_dependent"],
-    "placement": ["token"],
-    "rejected_behavior": ["not_reported"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "schema_coverage", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; per-framework coding requires full-text review."
+    "specification": [
+      "schema"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "reject"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "tpot",
+      "latency"
+    ],
+    "outcome_measurements": [
+      "schema_coverage",
+      "format_validity",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Benchmarks six engines (Guidance, Outlines, llama.cpp, XGrammar, OpenAI, Gemini) on real JSON Schemas under greedy decoding. Its contribution is coverage as a first-class metric: engines differ by 2x in how many schemas they accept at all, and an unsupported schema surfaces as a compile error or runtime failure rather than a wrong output. Reports grammar compilation time, TTFT and TPOT separately; finds constrained decoding can be ~50% faster than unconstrained and improves downstream task quality by up to 4%."
   },
   {
     "id": "lipkin-et-al-2025-awrs",
     "title": "Fast Controlled Generation from Language Models with Adaptive Weighted Rejection Sampling",
     "year": 2025,
-    "authors": ["Benjamin Lipkin", "Benjamin LeBrun", "Jacob Hoover Vigly", "Joao Loula", "David R. MacIver", "Li Du", "Jason Eisner", "Ryan Cotterell", "Vikash Mansinghka", "Timothy J. O'Donnell", "Alexander K. Lew", "Tim Vieira"],
+    "authors": [
+      "Benjamin Lipkin",
+      "Benjamin LeBrun",
+      "Jacob Hoover Vigly",
+      "Joao Loula",
+      "David R. MacIver",
+      "Li Du",
+      "Jason Eisner",
+      "Ryan Cotterell",
+      "Vikash Mansinghka",
+      "Timothy J. O'Donnell",
+      "Alexander K. Lew",
+      "Tim Vieira"
+    ],
     "venue": "COLM",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://openreview.net/forum?id=3BmPSFAdq3",
     "code_url": null,
-    "specification": ["lexical", "syntax", "semantic"],
-    "representation": ["programmatic"],
-    "allocation": ["rejection_sampling", "importance_weighting"],
-    "placement": ["token", "sequence"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["task_accuracy", "distribution_divergence"],
+    "specification": [
+      "lexical",
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "rejection_sampling",
+      "importance_weighting"
+    ],
+    "placement": [
+      "token",
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "resample"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "distribution_divergence"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Metadata and abstract checked; theorem assumptions and domain-specific measurements require full-text coding."
   },
@@ -87,20 +206,44 @@
     "id": "schall-demelo-2025-hidden-cost",
     "title": "The Hidden Cost of Structure: How Constrained Decoding Affects Language Model Performance",
     "year": 2025,
-    "authors": ["Maximilian Schall", "Gerard de Melo"],
+    "authors": [
+      "Maximilian Schall",
+      "Gerard de Melo"
+    ],
     "venue": "RANLP",
     "publication_status": "peer_reviewed",
-    "study_type": ["measurement", "evaluation"],
+    "study_type": [
+      "measurement",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2025.ranlp-1.124/",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["framework_dependent"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Metadata and abstract checked; model/task strata and log-probability analysis require full-text coding."
   },
@@ -108,62 +251,151 @@
     "id": "nguyen-et-al-2026-thinking",
     "title": "Thinking Before Constraining: A Unified Decoding Framework for Large Language Models",
     "year": 2026,
-    "authors": ["Ngoc Trinh Hung Nguyen", "Alonso Silva", "Laith Zumot", "Liubov Tupikina", "Armen Aghasaryan", "Mehwish Alam"],
+    "authors": [
+      "Ngoc Trinh Hung Nguyen",
+      "Alonso Silva",
+      "Laith Zumot",
+      "Liubov Tupikina",
+      "Armen Aghasaryan",
+      "Mehwish Alam"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2601.07525",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["cfg_parser"],
-    "allocation": ["local_masking"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and full HTML overview checked; free reasoning precedes a trigger-based switch to constrained structured output."
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Decouples P(R|q) from P(A|R,q,F) so reasoning runs unconstrained and the FSM only engages after a trigger token, making constrained decoding a parser over the finished reasoning trace rather than a constraint on it. Same interleaving idea as CRANE but triggered lexically and in a single call. Reports 100% parse rate, up to 27% accuracy gain over natural generation, 5-20 extra tokens, and identifies premature trigger firing as the main failure mode across 1.5B-32B models."
   },
   {
     "id": "reddy-et-al-2026-dccd",
     "title": "Draft-Conditioned Constrained Decoding for Structured Generation in LLMs",
     "year": 2026,
-    "authors": ["Avinash Reddy", "Thayne T. Walker", "James S. Ide", "Amrit Singh Bedi"],
+    "authors": [
+      "Avinash Reddy",
+      "Thayne T. Walker",
+      "James S. Ide",
+      "Amrit Singh Bedi"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "analysis", "evaluation"],
+    "study_type": [
+      "method",
+      "analysis",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2603.03305",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["framework_dependent"],
-    "allocation": ["draft_conditioning", "local_masking"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["regenerate"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; KL-projection assumptions and exact backends require full-text coding."
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "cfg_parser"
+    ],
+    "allocation": [
+      "draft_conditioning",
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "format_validity",
+      "distribution_divergence"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Identifies feasible mass - the model probability remaining after masking - as the quantity that governs distortion, and formalises the projection tax as the expected log of its reciprocal. Rather than correcting the mask, it raises feasible mass beforehand by conditioning generation on an unconstrained draft, then masks as usual, so validity is still exact. K drafts are scored by cumulative log feasible mass. Reports 39.04% vs 15.24% strict structured accuracy on GSM8K at 1B scale."
   },
   {
     "id": "liu-et-al-2024-need-structured-output",
     "title": "We Need Structured Output: Towards User-centered Constraints on Large Language Model Output",
     "year": 2024,
-    "authors": ["Michael Xieyang Liu", "Frederick Liu", "Alexander J. Fiannaca", "Terry Koo", "Lucas Dixon", "Michael Terry", "Carrie J. Cai"],
+    "authors": [
+      "Michael Xieyang Liu",
+      "Frederick Liu",
+      "Alexander J. Fiannaca",
+      "Terry Koo",
+      "Lucas Dixon",
+      "Michael Terry",
+      "Carrie J. Cai"
+    ],
     "venue": "CHI Extended Abstracts",
     "publication_status": "peer_reviewed",
-    "study_type": ["user_study"],
+    "study_type": [
+      "user_study"
+    ],
     "url": "https://doi.org/10.1145/3613905.3650756",
     "code_url": null,
-    "specification": ["syntax", "schema", "semantic", "policy"],
-    "representation": ["framework_dependent"],
-    "allocation": ["framework_dependent"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["not_reported"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["user_outcome"],
+    "specification": [
+      "syntax",
+      "schema",
+      "semantic",
+      "policy"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "framework_dependent"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "not_reported"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "user_outcome"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Metadata and abstract checked; user study reports 134 use cases from 51 industry professionals."
   },
@@ -171,20 +403,58 @@
     "id": "dong-et-al-2024-xgrammar",
     "title": "XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models",
     "year": 2024,
-    "authors": ["Yixin Dong", "Charlie F. Ruan", "Yaxing Cai", "Ruihang Lai", "Ziyi Xu", "Yilong Zhao", "Tianqi Chen"],
+    "authors": [
+      "Yixin Dong",
+      "Charlie F. Ruan",
+      "Yaxing Cai",
+      "Ruihang Lai",
+      "Ziyi Xu",
+      "Yilong Zhao",
+      "Tianqi Chen"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["system", "method", "evaluation"],
+    "study_type": [
+      "system",
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2411.15100",
     "code_url": "https://github.com/mlc-ai/xgrammar",
-    "specification": ["syntax", "schema"],
-    "representation": ["cfg_parser", "pda", "token_index"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["compile_time", "host_memory", "latency", "tpot", "throughput", "batch_scaling", "cache_behavior"],
-    "outcome_measurements": ["format_validity", "schema_coverage"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "cfg_parser",
+      "pda",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "host_memory",
+      "latency",
+      "tpot",
+      "throughput",
+      "batch_scaling",
+      "cache_behavior"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "schema_coverage"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "Full text screened for the grammar compiler, persistent-stack execution, adaptive token masks, and serving evaluation; detailed evidence-level coding remains."
   },
@@ -192,20 +462,48 @@
     "id": "ugare-et-al-2024-syncode",
     "title": "SynCode: LLM Generation with Grammar Augmentation",
     "year": 2024,
-    "authors": ["Shubham Ugare", "Tarun Suresh", "Hangoo Kang", "Sasa Misailovic", "Gagandeep Singh"],
+    "authors": [
+      "Shubham Ugare",
+      "Tarun Suresh",
+      "Hangoo Kang",
+      "Sasa Misailovic",
+      "Gagandeep Singh"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2403.01632",
     "code_url": "https://github.com/uiuc-focal-lab/syncode",
-    "specification": ["syntax", "schema"],
-    "representation": ["cfg_parser"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "execution_accuracy", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; soundness assumptions, grammar coverage, and tokenizer integration require full-text coding."
   },
@@ -213,104 +511,260 @@
     "id": "ugare-et-al-2024-itergen",
     "title": "IterGen: Iterative Semantic-aware Structured LLM Generation with Backtracking",
     "year": 2024,
-    "authors": ["Shubham Ugare", "Rohan Gumaste", "Tarun Suresh", "Gagandeep Singh", "Sasa Misailovic"],
+    "authors": [
+      "Shubham Ugare",
+      "Rohan Gumaste",
+      "Tarun Suresh",
+      "Gagandeep Singh",
+      "Sasa Misailovic"
+    ],
     "venue": "ICLR 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2410.07295",
     "code_url": null,
-    "specification": ["schema", "semantic", "relation"],
-    "representation": ["programmatic"],
-    "allocation": ["lookahead", "retry"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["regenerate", "repair"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["latency", "end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy", "execution_accuracy"],
+    "specification": [
+      "schema",
+      "semantic",
+      "relation"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "lookahead",
+      "retry"
+    ],
+    "placement": [
+      "field",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "repair",
+      "regenerate"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy",
+      "execution_accuracy"
+    ],
     "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; backtracking triggers, semantic checks, and venue status require final full-text/venue verification."
+    "evidence_note": "Metadata and abstract only. Maintains a symbol-to-position map over the grammar so generation can move backward as well as forward, regenerating a grammar symbol in place using cached key-value state. Reported on privacy leakage and on SQL / Vega-Lite accuracy. Full-text coding still needed for guarantees and systems measurements."
   },
   {
     "id": "wang-et-al-2024-fantastic",
     "title": "FANTAstic SEquences and Where to Find Them: Faithful and Efficient API Call Generation through State-tracked Constrained Decoding and Reranking",
     "year": 2024,
-    "authors": ["Zhuoer Wang", "Leonardo F. R. Ribeiro", "Alexandros Papangelis", "Rohan Mukherjee", "Tzu-Yen Wang", "Xinyan Zhao", "Arijit Biswas", "James Caverlee", "Angeliki Metallinou"],
+    "authors": [
+      "Zhuoer Wang",
+      "Leonardo F. R. Ribeiro",
+      "Alexandros Papangelis",
+      "Rohan Mukherjee",
+      "Tzu-Yen Wang",
+      "Xinyan Zhao",
+      "Arijit Biswas",
+      "James Caverlee",
+      "Angeliki Metallinou"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2407.13945",
     "code_url": null,
-    "specification": ["schema", "state", "relation"],
-    "representation": ["trie", "programmatic"],
-    "allocation": ["local_masking", "beam_search"],
-    "placement": ["token", "sequence"],
-    "rejected_behavior": ["mask", "prune"],
-    "guarantees": ["state_validity"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["execution_accuracy", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; exact state tracker, reranking semantics, and guarantee assumptions require full-text coding."
+    "specification": [
+      "schema",
+      "semantic",
+      "relation"
+    ],
+    "representation": [
+      "trie",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking",
+      "beam_search",
+      "deterministic_validation"
+    ],
+    "placement": [
+      "token",
+      "field"
+    ],
+    "rejected_behavior": [
+      "mask",
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency",
+      "throughput"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. API documentation is compiled into a constrained token search trie; structural tokens (dot, parenthesis, equals, comma) act as field boundaries that trigger constraint retrieval, so enforcement is per token within a per-field state machine. Faithfulness to the documentation holds by construction rather than by proof. A RoBERTa discriminator reranks beam candidates. Reports 1.56-2.39x speed-up over unconstrained beam search and prompt savings from dropping API docs from context."
   },
   {
     "id": "tam-et-al-2024-speak-freely",
     "title": "Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models",
     "year": 2024,
-    "authors": ["Zhi Rui Tam", "Cheng-Kuang Wu", "Yi-Lin Tsai", "Chieh-Yen Lin", "Hung-yi Lee", "Yun-Nung Chen"],
+    "authors": [
+      "Zhi Rui Tam",
+      "Cheng-Kuang Wu",
+      "Yi-Lin Tsai",
+      "Chieh-Yen Lin",
+      "Hung-yi Lee",
+      "Yun-Nung Chen"
+    ],
     "venue": "EMNLP 2024 Industry Track",
     "publication_status": "peer_reviewed",
-    "study_type": ["measurement", "evaluation"],
+    "study_type": [
+      "measurement",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2408.02442",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["framework_dependent"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; prompt matching and constrained/unconstrained comparability require full-text coding."
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "cfg_parser",
+      "framework_dependent"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. A study, not a method: compares decode-level JSON mode against prompt-level format-restricting instructions and a two-stage natural-language-then-convert pipeline. The result splits by task type - decode-level restriction is significantly worse on reasoning (GSM8K, Last Letter) but competitive or better on classification (DDXPlus, Sports). Stricter schemas also raise prompt sensitivity. Schema-guaranteed generation still degrades reasoning relative to free-form, which is the finding the later Constraint Tax and CRANE work builds on. Token cost by format is in the appendix; YAML is cheapest."
   },
   {
     "id": "koo-et-al-2024-automata",
     "title": "Automata-based constraints for language model decoding",
     "year": 2024,
-    "authors": ["Terry Koo", "Frederick Liu", "Luheng He"],
+    "authors": [
+      "Terry Koo",
+      "Frederick Liu",
+      "Luheng He"
+    ],
     "venue": "COLM 2024",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2407.08103",
     "code_url": null,
-    "specification": ["lexical", "syntax"],
-    "representation": ["regex_fsm", "pda"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness", "token_reachable_coverage"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; automata construction, tokenizer composition, and formal coverage statement require full-text coding."
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "pda"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Treats detokenization itself as a finite-state transducer and composes it with the constraint automaton, which is what makes tokenization misalignment disappear rather than be patched around; tokens may straddle grammar-rule boundaries. Coverage is deliberately bounded to regular languages and deterministic context-free languages (LL(k), LR(k)), not arbitrary or ambiguous CFGs. Correctness proofs in Appendix B. Reports roughly 7,000x faster compilation and 6.5-33.6x lower per-step cost than Outlines."
   },
   {
     "id": "geng-et-al-2024-sketch-guided",
     "title": "Sketch-Guided Constrained Decoding for Boosting Blackbox Large Language Models without Logit Access",
     "year": 2024,
-    "authors": ["Saibo Geng", "Berkay Doner", "Chris Wendler", "Martin Josifoski", "Robert West"],
+    "authors": [
+      "Saibo Geng",
+      "Berkay Doner",
+      "Chris Wendler",
+      "Martin Josifoski",
+      "Robert West"
+    ],
     "venue": "ACL 2024",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2401.09967",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["programmatic"],
-    "allocation": ["draft_conditioning", "retry"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["regenerate"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "draft_conditioning",
+      "retry"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "regenerate"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; black-box sketch protocol and final guarantee boundary require full-text coding."
   },
@@ -318,41 +772,112 @@
     "id": "park-et-al-2024-grammar-aligned",
     "title": "Grammar-Aligned Decoding",
     "year": 2024,
-    "authors": ["Kanghee Park", "Jiayu Wang", "Taylor Berg-Kirkpatrick", "Nadia Polikarpova", "Loris D'Antoni"],
+    "authors": [
+      "Kanghee Park",
+      "Jiayu Wang",
+      "Taylor Berg-Kirkpatrick",
+      "Nadia Polikarpova",
+      "Loris D'Antoni"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2405.21047",
     "code_url": null,
-    "specification": ["syntax", "type"],
-    "representation": ["cfg_parser", "programmatic"],
-    "allocation": ["lookahead", "local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask", "prune"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "execution_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; quotient construction and soundness assumptions require full-text coding."
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "cfg_parser",
+      "trie",
+      "token_index"
+    ],
+    "allocation": [
+      "importance_weighting",
+      "lookahead"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "distribution_divergence",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Diagnoses standard grammar-constrained decoding as a binary approximation that assigns weight one to every grammatical prefix, which distorts the grammar-conditioned distribution. ASAp instead estimates expected future grammaticality and back-propagates it from completed samples, so the correction is iterative rather than single-pass. Theorem 1 gives an upper-bound property and Theorem 2 convergence to exact conditional sampling as iterations grow. Reports KL to the base model, not just validity."
   },
   {
     "id": "zheng-et-al-2023-sglang",
     "title": "SGLang: Efficient Execution of Structured Language Model Programs",
     "year": 2023,
-    "authors": ["Lianmin Zheng", "Liangsheng Yin", "Zhiqiang Xie", "Chuyue Sun", "Jeff Huang", "Cody Hao Yu", "Shiyi Cao", "Christos Kozyrakis", "Ion Stoica", "Joseph E. Gonzalez", "Clark Barrett", "Ying Sheng"],
+    "authors": [
+      "Lianmin Zheng",
+      "Liangsheng Yin",
+      "Zhiqiang Xie",
+      "Chuyue Sun",
+      "Jeff Huang",
+      "Cody Hao Yu",
+      "Shiyi Cao",
+      "Christos Kozyrakis",
+      "Ion Stoica",
+      "Joseph E. Gonzalez",
+      "Clark Barrett",
+      "Ying Sheng"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["system", "method", "evaluation"],
+    "study_type": [
+      "system",
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2312.07104",
     "code_url": "https://github.com/sgl-project/sglang",
-    "specification": ["syntax", "schema"],
-    "representation": ["regex_fsm", "programmatic"],
-    "allocation": ["local_masking", "speculative"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency", "throughput", "batch_scaling", "cache_behavior", "end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "programmatic"
+    ],
+    "allocation": [
+      "local_masking",
+      "speculative"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency",
+      "throughput",
+      "batch_scaling",
+      "cache_behavior",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; structured-generation backend is one component of a broader language-model programming and serving system."
   },
@@ -360,20 +885,47 @@
     "id": "zhang-et-al-2023-tractable-control",
     "title": "Tractable Control for Autoregressive Language Generation",
     "year": 2023,
-    "authors": ["Honghua Zhang", "Meihua Dang", "Nanyun Peng", "Guy Van den Broeck"],
+    "authors": [
+      "Honghua Zhang",
+      "Meihua Dang",
+      "Nanyun Peng",
+      "Guy Van den Broeck"
+    ],
     "venue": "ICML 2023",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2304.07438",
     "code_url": null,
-    "specification": ["lexical", "semantic"],
-    "representation": ["programmatic"],
-    "allocation": ["lookahead"],
-    "placement": ["sequence"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["distribution_divergence", "task_accuracy"],
+    "specification": [
+      "lexical",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "lookahead"
+    ],
+    "placement": [
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "resample"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "distribution_divergence",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; tractability class, exact target distribution, and complexity bounds require full-text coding."
   },
@@ -381,20 +933,52 @@
     "id": "beurer-kellner-et-al-2024-domino",
     "title": "Guiding LLMs The Right Way: Fast, Non-Invasive Constrained Generation",
     "year": 2024,
-    "authors": ["Luca Beurer-Kellner", "Marc Fischer", "Martin Vechev"],
+    "authors": [
+      "Luca Beurer-Kellner",
+      "Marc Fischer",
+      "Martin Vechev"
+    ],
     "venue": "ICML 2024",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "system", "evaluation"],
+    "study_type": [
+      "method",
+      "system",
+      "evaluation"
+    ],
     "url": "https://proceedings.mlr.press/v235/beurer-kellner24a.html",
     "code_url": "https://github.com/eth-sri/domino",
-    "specification": ["syntax", "schema"],
-    "representation": ["regex_fsm", "cfg_parser", "token_index"],
-    "allocation": ["local_masking", "speculative"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness", "token_reachable_coverage"],
-    "systems_measurements": ["compile_time", "latency", "throughput"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "cfg_parser",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking",
+      "speculative"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "token_reachable_coverage"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "latency",
+      "throughput"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "PMLR paper screened for subword-aligned constraint integration, precomputation, speculative decoding, task accuracy, and runtime claims."
   },
@@ -402,20 +986,49 @@
     "id": "scholak-et-al-2021-picard",
     "title": "PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models",
     "year": 2021,
-    "authors": ["Torsten Scholak", "Nathan Schucher", "Dzmitry Bahdanau"],
+    "authors": [
+      "Torsten Scholak",
+      "Nathan Schucher",
+      "Dzmitry Bahdanau"
+    ],
     "venue": "EMNLP 2021",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2021.emnlp-main.779/",
     "code_url": "https://github.com/ServiceNow/picard",
-    "specification": ["syntax", "semantic", "relation"],
-    "representation": ["cfg_parser", "membership_oracle"],
-    "allocation": ["beam_search", "local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["prune"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "execution_accuracy", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "semantic",
+      "relation"
+    ],
+    "representation": [
+      "cfg_parser",
+      "membership_oracle"
+    ],
+    "allocation": [
+      "beam_search",
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "ACL full text screened for incremental SQL parsing modes, beam rejection, execution accuracy, and constrained decoding evaluation."
   },
@@ -423,20 +1036,47 @@
     "id": "vaithilingam-et-al-2022-synchromesh",
     "title": "Synchromesh: Reliable Code Generation from Pre-trained Language Models",
     "year": 2022,
-    "authors": ["Priyan Vaithilingam", "Tianyi Zhang", "Elena L. Glassman"],
+    "authors": [
+      "Priyan Vaithilingam",
+      "Tianyi Zhang",
+      "Elena L. Glassman"
+    ],
     "venue": "ICLR 2022",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2201.11227",
     "code_url": null,
-    "specification": ["syntax", "semantic", "type"],
-    "representation": ["programmatic", "membership_oracle"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["prune"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["execution_accuracy", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "semantic",
+      "type"
+    ],
+    "representation": [
+      "programmatic",
+      "membership_oracle"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "execution_accuracy",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Metadata and abstract checked; completion engine, semantic completion rules, and guarantee assumptions require full-text coding."
   },
@@ -444,20 +1084,49 @@
     "id": "lu-et-al-2021-neurologic",
     "title": "NeuroLogic Decoding: (Un)supervised Neural Text Generation with Predicate Logic Constraints",
     "year": 2021,
-    "authors": ["Ximing Lu", "Peter West", "Rowan Zellers", "Ronan Le Bras", "Chandra Bhagavatula", "Yejin Choi"],
+    "authors": [
+      "Ximing Lu",
+      "Peter West",
+      "Rowan Zellers",
+      "Ronan Le Bras",
+      "Chandra Bhagavatula",
+      "Yejin Choi"
+    ],
     "venue": "NAACL 2021",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2021.naacl-main.339/",
     "code_url": null,
-    "specification": ["lexical", "semantic"],
-    "representation": ["programmatic"],
-    "allocation": ["beam_search", "lookahead"],
-    "placement": ["token", "sequence"],
-    "rejected_behavior": ["prune"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["task_accuracy"],
+    "specification": [
+      "lexical",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "beam_search",
+      "lookahead"
+    ],
+    "placement": [
+      "token",
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL metadata and abstract checked; predicate satisfaction scoring and search guarantees require full-text coding."
   },
@@ -465,20 +1134,56 @@
     "id": "chen-et-al-2025-pre3",
     "title": "Pre3: Enabling Deterministic Pushdown Automata for Faster Structured LLM Generation",
     "year": 2025,
-    "authors": ["Junyi Chen", "Shihao Bai", "Zaijun Wang", "Siyu Wu", "Chuheng Du", "Hailong Yang", "Ruihao Gong", "Shengzhong Liu", "Fan Wu", "Guihai Chen"],
+    "authors": [
+      "Junyi Chen",
+      "Shihao Bai",
+      "Zaijun Wang",
+      "Siyu Wu",
+      "Chuheng Du",
+      "Hailong Yang",
+      "Ruihao Gong",
+      "Shengzhong Liu",
+      "Fan Wu",
+      "Guihai Chen"
+    ],
     "venue": "ACL 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["system", "method", "evaluation"],
+    "study_type": [
+      "system",
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2025.acl-long.551/",
     "code_url": "https://github.com/ModelTC/lightllm",
-    "specification": ["syntax", "schema"],
-    "representation": ["pda", "token_index"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["compile_time", "tpot", "throughput", "batch_scaling"],
-    "outcome_measurements": ["format_validity"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "pda",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "tpot",
+      "throughput",
+      "batch_scaling"
+    ],
+    "outcome_measurements": [
+      "format_validity"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "ACL full text screened for prefix-conditioned preprocessing, LR(1)-to-DPDA execution, TPOT, throughput, and batch measurements."
   },
@@ -486,20 +1191,47 @@
     "id": "tuccio-et-al-2025-grammar-llm",
     "title": "GRAMMAR-LLM: Grammar-Constrained Natural Language Generation",
     "year": 2025,
-    "authors": ["Gabriele Tuccio", "Luana Bulla", "Maria Madonia", "Aldo Gangemi", "Misael Mongiovi"],
+    "authors": [
+      "Gabriele Tuccio",
+      "Luana Bulla",
+      "Maria Madonia",
+      "Aldo Gangemi",
+      "Misael Mongiovi"
+    ],
     "venue": "Findings of ACL 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2025.findings-acl.177/",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["cfg_parser"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "ACL full text screened for the LL(prefix)/LL(1) grammar class, linear-time enforcement claim, and multi-task evaluation."
   },
@@ -507,20 +1239,45 @@
     "id": "raspanti-et-al-2025-logical-parsers",
     "title": "Grammar-Constrained Decoding Makes Large Language Models Better Logical Parsers",
     "year": 2025,
-    "authors": ["Federico Raspanti", "Tanir Ozcelebi", "Mike Holenderski"],
+    "authors": [
+      "Federico Raspanti",
+      "Tanir Ozcelebi",
+      "Mike Holenderski"
+    ],
     "venue": "ACL 2025 Industry Track",
     "publication_status": "peer_reviewed",
-    "study_type": ["application", "evaluation"],
+    "study_type": [
+      "application",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2025.acl-industry.34/",
     "code_url": null,
-    "specification": ["syntax", "semantic"],
-    "representation": ["cfg_parser"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "ACL full text screened for logical-form syntax enforcement, symbolic-solver workflow, semantic accuracy, and in-context-example comparisons."
   },
@@ -528,125 +1285,333 @@
     "id": "park-et-al-2025-flexible-gcd",
     "title": "Flexible and Efficient Grammar-Constrained Decoding",
     "year": 2025,
-    "authors": ["Kanghee Park", "Timothy Zhou", "Loris D'Antoni"],
+    "authors": [
+      "Kanghee Park",
+      "Timothy Zhou",
+      "Loris D'Antoni"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2502.05111",
     "code_url": null,
-    "specification": ["syntax", "schema", "semantic"],
-    "representation": ["cfg_parser", "pda", "programmatic"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["compile_time", "latency"],
-    "outcome_measurements": ["format_validity", "execution_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; grammar formalism, semantic hooks, and complexity results require full-text coding."
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "cfg_parser",
+      "regex_fsm",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "latency"
+    ],
+    "outcome_measurements": [
+      "not_reported"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Precomputes a token spanner table mapping terminal sequences to vocabulary tokens from the terminal regexes, a lexing automaton and the tokenizer, which moves the cost off the online path without per-grammar offline blowup. Notes that existing implementations contain soundness bugs, so the contribution is partly correctness rather than speed. Reports 17.71x faster offline preprocessing and 5-32ms per-token masking; no downstream generation-quality numbers are given."
   },
   {
     "id": "banerjee-et-al-2025-crane",
     "title": "CRANE: Reasoning with constrained LLM generation",
     "year": 2025,
-    "authors": ["Debangshu Banerjee", "Tarun Suresh", "Shubham Ugare", "Sasa Misailovic", "Gagandeep Singh"],
+    "authors": [
+      "Debangshu Banerjee",
+      "Tarun Suresh",
+      "Shubham Ugare",
+      "Sasa Misailovic",
+      "Gagandeep Singh"
+    ],
     "venue": "ICML 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2502.09061",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["cfg_parser"],
-    "allocation": ["local_masking"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; reasoning/answer phase boundary and constrained comparison protocol require full-text coding."
+    "specification": [
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy",
+      "execution_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Argues constraints cost reasoning capacity, not just accuracy: Proposition 3.1 shows constant-layer LLMs under restrictive grammars are limited to TC0. The remedy is an augmented grammar Ga -> R G that reserves an unconstrained reasoning region R before the constrained answer G, with delimiters toggling masking on and off mid-generation. Proposition 3.3 shows the augmented form preserves Turing-complete simulation while keeping the extracted answer in L(G). Up to 10 points on GSM-Symbolic and FOLIO, verified with Z3 and Prover9."
   },
   {
     "id": "loula-et-al-2025-smc-control",
     "title": "Syntactic and Semantic Control of Large Language Models via Sequential Monte Carlo",
     "year": 2025,
-    "authors": ["Joao Loula", "Benjamin LeBrun", "Li Du", "Ben Lipkin", "Clemente Pasti", "Gabriel Grand", "Tianyu Liu", "Yahya Emara", "Marjorie Freedman", "Jason Eisner", "Ryan Cotterell", "Vikash Mansinghka", "Alexander K. Lew", "Tim Vieira", "Timothy J. O'Donnell"],
+    "authors": [
+      "Joao Loula",
+      "Benjamin LeBrun",
+      "Li Du",
+      "Ben Lipkin",
+      "Clemente Pasti",
+      "Gabriel Grand",
+      "Tianyu Liu",
+      "Yahya Emara",
+      "Marjorie Freedman",
+      "Jason Eisner",
+      "Ryan Cotterell",
+      "Vikash Mansinghka",
+      "Alexander K. Lew",
+      "Tim Vieira",
+      "Timothy J. O'Donnell"
+    ],
     "venue": "ICLR 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2504.13139",
     "code_url": "https://github.com/genlm/genlm-control",
-    "specification": ["syntax", "semantic", "relation"],
-    "representation": ["programmatic"],
-    "allocation": ["sequential_monte_carlo", "importance_weighting"],
-    "placement": ["sequence", "multi_stage"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity"],
-    "systems_measurements": ["latency", "end_to_end_cost"],
-    "outcome_measurements": ["distribution_divergence", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; target posterior, SMC convergence assumptions, and implementation details require full-text coding."
+    "specification": [
+      "syntax",
+      "semantic",
+      "relation"
+    ],
+    "representation": [
+      "cfg_parser",
+      "programmatic",
+      "membership_oracle"
+    ],
+    "allocation": [
+      "sequential_monte_carlo",
+      "importance_weighting",
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "sequence",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "resample",
+      "prune"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "distribution_divergence"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Constraints are arbitrary non-negative potentials; cheap ones act as token-level proposals, expensive ones as twist functions applied at reweighting. Particles are extended, reweighted and resampled, so rejection is a population-level reallocation rather than a per-token mask. Convergence to the global product of experts is asymptotic in particle count and assumes potential monotonicity. Reports task accuracy plus KL divergence to the target distribution, and 5-10x particle savings over sample-rerank."
   },
   {
     "id": "ye-et-al-2025-unbiased",
     "title": "Efficient and Asymptotically Unbiased Constrained Decoding for Large Language Models",
     "year": 2025,
-    "authors": ["Haotian Ye", "Himanshu Jain", "Chong You", "Ananda Theertha Suresh", "Haowei Lin", "James Zou", "Felix Yu"],
+    "authors": [
+      "Haotian Ye",
+      "Himanshu Jain",
+      "Chong You",
+      "Ananda Theertha Suresh",
+      "Haowei Lin",
+      "James Zou",
+      "Felix Yu"
+    ],
     "venue": "AISTATS 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2504.09135",
     "code_url": null,
-    "specification": ["syntax", "semantic"],
-    "representation": ["programmatic"],
-    "allocation": ["rejection_sampling", "importance_weighting"],
-    "placement": ["sequence"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity", "termination"],
-    "systems_measurements": ["latency", "end_to_end_cost"],
-    "outcome_measurements": ["distribution_divergence", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; asymptotic statement, stopping conditions, and empirical target distributions require full-text coding."
+    "specification": [
+      "lexical",
+      "schema"
+    ],
+    "representation": [
+      "token_index",
+      "trie"
+    ],
+    "allocation": [
+      "rejection_sampling",
+      "importance_weighting"
+    ],
+    "placement": [
+      "token",
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "resample"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "latency",
+      "throughput"
+    ],
+    "outcome_measurements": [
+      "distribution_divergence",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Theorem 2.1 lower-bounds the bias that ordinary constrained decoding introduces, so the distortion is not an implementation artefact. DISC replaces masking with importance sampling plus acceptance-rejection over a lexicographically sorted constraint matrix, giving an unbiased draw from the constrained distribution; Theorem 3.1 shows KL to the true constrained distribution vanishes exponentially in the retry budget, with expected retries bounded independently of it. Parallel prefix verification is O(log N) per candidate and 8.5x faster than trie baselines."
   },
   {
     "id": "sun-et-al-2025-earley-pruning",
     "title": "Earley-Driven Dynamic Pruning for Efficient Structured Decoding",
     "year": 2025,
-    "authors": ["Xintong Sun", "Chi Wei", "Minghao Tian", "Shiwen Ni"],
+    "authors": [
+      "Xintong Sun",
+      "Chi Wei",
+      "Minghao Tian",
+      "Shiwen Ni"
+    ],
     "venue": "ICML 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["system", "method", "evaluation"],
+    "study_type": [
+      "system",
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2506.01151",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["cfg_parser", "token_index"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask", "prune"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency", "tpot", "throughput"],
-    "outcome_measurements": ["format_validity"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; Earley-state pruning equivalence and runtime setup require full-text coding."
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "cfg_parser",
+      "regex_fsm"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask",
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "throughput",
+      "host_memory"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Prunes Earley items that cannot contribute to any completion using a dependency graph over Predict/Scan/Complete edges, plus a rejected-prefix set that lets the parser discard all extensions of a byte sequence once it is known dead. Correctness is argued from reachability rather than proved equivalent to unpruned masking, which is worth noting given the claimed 2x speedup. Reports throughput up to 12,174 tok/s against 616 for XGrammar on one workload, and an ablation showing pruning is worth 30-50%."
   },
   {
     "id": "li-et-al-2026-xgrammar2",
     "title": "XGrammar-2: Efficient Dynamic Structured Generation Engine for Agentic LLMs",
     "year": 2026,
-    "authors": ["Linzhang Li", "Yixin Dong", "Guanjie Wang", "Ziyi Xu", "Alexander Jiang", "Tianqi Chen"],
+    "authors": [
+      "Linzhang Li",
+      "Yixin Dong",
+      "Guanjie Wang",
+      "Ziyi Xu",
+      "Alexander Jiang",
+      "Tianqi Chen"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["system", "method", "evaluation"],
+    "study_type": [
+      "system",
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2601.04426",
     "code_url": null,
-    "specification": ["syntax", "schema", "state"],
-    "representation": ["cfg_parser", "pda", "token_index"],
-    "allocation": ["local_masking", "speculative"],
-    "placement": ["token", "field"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["compile_time", "host_memory", "device_memory", "latency", "tpot", "throughput", "batch_scaling", "cache_behavior"],
-    "outcome_measurements": ["format_validity", "schema_coverage", "execution_accuracy"],
+    "specification": [
+      "syntax",
+      "schema",
+      "state"
+    ],
+    "representation": [
+      "cfg_parser",
+      "pda",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking",
+      "speculative"
+    ],
+    "placement": [
+      "token",
+      "field"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "host_memory",
+      "device_memory",
+      "latency",
+      "tpot",
+      "throughput",
+      "batch_scaling",
+      "cache_behavior"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "schema_coverage",
+      "execution_accuracy"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "Full text screened for dynamic grammar fragments, cross-grammar reuse, agentic tool formats, JIT compilation, and serving measurements."
   },
@@ -654,104 +1619,260 @@
     "id": "sullivan-koller-2026-cfgzip",
     "title": "Accelerating Constrained Decoding with Token Space Compression",
     "year": 2026,
-    "authors": ["Michael Sullivan", "Alexander Koller"],
+    "authors": [
+      "Michael Sullivan",
+      "Alexander Koller"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["system", "method", "evaluation"],
+    "study_type": [
+      "system",
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2605.29986",
     "code_url": null,
-    "specification": ["syntax"],
-    "representation": ["cfg_parser", "token_index"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["compile_time", "plan_memory", "latency", "tpot", "throughput"],
-    "outcome_measurements": ["format_validity"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; token-equivalence construction and end-to-end comparison require full-text coding."
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "cfg_parser",
+      "pda",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "latency",
+      "throughput"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Compresses the vocabulary into equivalence classes that are interchangeable for prefix validity under a Greibach-normal-form PDA, so the mask is computed over class representatives instead of all tokens. Theorem 1 makes the compression provably lossless: outputs are byte-identical to uncompressed masking, so this is a pure cost reduction with no behavioural change. Reports 318-478s offline precomputation, 253-3095 equivalence classes, and up to 7.5x speedup on complex grammars."
   },
   {
     "id": "nie-et-al-2026-future-validity",
     "title": "Future Validity is the Missing Statistic: From Impossibility to Phi-Estimation for Grammar-Faithful Speculative Decoding",
     "year": 2026,
-    "authors": ["Wenhua Nie", "Zijie Meng", "Kun Zou", "Zheng Lin", "Ziwei Li", "Haoran Zheng", "Jyh-Shing Roger Jang", "Hao Zhang"],
+    "authors": [
+      "Wenhua Nie",
+      "Zijie Meng",
+      "Kun Zou",
+      "Zheng Lin",
+      "Ziwei Li",
+      "Haoran Zheng",
+      "Jyh-Shing Roger Jang",
+      "Hao Zhang"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2605.07698",
     "code_url": null,
-    "specification": ["syntax"],
-    "representation": ["framework_dependent"],
-    "allocation": ["lookahead", "importance_weighting", "speculative"],
-    "placement": ["token", "sequence"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity"],
-    "systems_measurements": ["latency", "throughput"],
-    "outcome_measurements": ["distribution_divergence", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; impossibility conditions, Phi estimator, and speculative target require full-text coding."
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "cfg_parser",
+      "regex_fsm",
+      "trie"
+    ],
+    "allocation": [
+      "local_masking",
+      "lookahead",
+      "speculative",
+      "rejection_sampling"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "resample"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "throughput",
+      "latency"
+    ],
+    "outcome_measurements": [
+      "distribution_divergence"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Formalises the gap between locally projected masking and the true grammar-conditional distribution as a missing future-validity factor, recovered by a Doob h-transform. Offers a four-tier estimator ladder from uniform (status quo, free) through one-step lookahead and Monte Carlo rollouts to exact dynamic programming. Theorem 7 bounds total variation by the estimator error; exact computation is #P-complete for general CFGs. Measures TV directly: 0.418 under uniform versus 0.014 under the exact oracle on Dyck, and reports structural bias (local projection overproduces nesting depth and length)."
   },
   {
     "id": "li-et-al-2025-adaptrack",
     "title": "AdapTrack: Constrained Decoding without Distorting LLM's Output Intent",
     "year": 2025,
-    "authors": ["Yongmin Li", "Jia Li", "Ge Li", "Zhi Jin"],
+    "authors": [
+      "Yongmin Li",
+      "Jia Li",
+      "Ge Li",
+      "Zhi Jin"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2510.17376",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["framework_dependent"],
-    "allocation": ["lookahead", "rejection_sampling"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["resample", "regenerate"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["latency", "end_to_end_cost"],
-    "outcome_measurements": ["format_validity", "task_accuracy", "distribution_divergence"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; tracking, backtracking, and distributional target require full-text coding."
+    "specification": [
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "membership_oracle",
+      "programmatic"
+    ],
+    "allocation": [
+      "rejection_sampling",
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "resample",
+      "regenerate"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "distribution_divergence",
+      "execution_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Keeps a validity estimate per prefix and, once masking reveals that a chosen branch has lost probability mass, backtracks by rejection sampling and resamples excluding the dead branch. Theorem 5.1 preserves relative probabilities among valid sequences. Figure 1 is the canonical illustration of constraint-induced substitution: the model wants torch.matrix_rank (57.44%), the constraint removes it as absent from the target library version, and renormalisation elects torch.matrix_power (originally 0.20%) rather than the nearby valid torch.linalg.matrix_rank. Costs 20-60% more model calls."
   },
   {
     "id": "nagy-et-al-2025-chopchop",
     "title": "ChopChop: a Programmable Framework for Semantically Constraining the Output of Language Models",
     "year": 2025,
-    "authors": ["Shaan Nagy", "Timothy Zhou", "Nadia Polikarpova", "Loris D'Antoni"],
+    "authors": [
+      "Shaan Nagy",
+      "Timothy Zhou",
+      "Nadia Polikarpova",
+      "Loris D'Antoni"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2509.00360",
     "code_url": null,
-    "specification": ["syntax", "type", "semantic", "relation"],
-    "representation": ["programmatic"],
-    "allocation": ["local_masking", "lookahead"],
-    "placement": ["token", "field"],
-    "rejected_behavior": ["mask", "prune"],
-    "guarantees": ["language_soundness", "semantic_correctness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["execution_accuracy", "task_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; coinductive realizability model, semantic property class, and proof assumptions require full-text coding."
+    "specification": [
+      "syntax",
+      "type",
+      "semantic",
+      "relation"
+    ],
+    "representation": [
+      "programmatic",
+      "cfg_parser",
+      "solver"
+    ],
+    "allocation": [
+      "lookahead",
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "semantic_correctness",
+      "type_soundness"
+    ],
+    "systems_measurements": [
+      "latency",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "execution_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Constrains abstract syntax trees rather than token strings, using regular codata (cyclic term graphs) to represent infinite program spaces finitely, with Brzozowski-derivative parser coterms and e-graphs for the equivalence case study. Decoding keeps a worklist of prefixes and discards any prefix that cannot be completed to satisfy the predicate, so the mechanism is completability lookahead with backtracking rather than a precomputed mask. Theorem 3.3 gives soundness conditional on a sound pruner; Theorem 3.4 gives relative completeness under top-p/top-k. Type safety is handled by overapproximation."
   },
   {
     "id": "ray-2026-constraint-tax",
     "title": "The Constraint Tax: Measuring Validity-Correctness Tradeoffs in Structured Outputs for Small Language Models",
     "year": 2026,
-    "authors": ["Jaideep Ray"],
+    "authors": [
+      "Jaideep Ray"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["measurement", "evaluation"],
+    "study_type": [
+      "measurement",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2605.26128",
     "code_url": null,
-    "specification": ["syntax", "schema"],
-    "representation": ["framework_dependent"],
-    "allocation": ["local_masking"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["format_validity", "execution_accuracy", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
     "review_status": "full_text_screened",
     "evidence_note": "Full text screened for schema-valid versus executable-correct outcomes, delayed packaging, model-size scope, and constrain-late recommendation."
   },
@@ -759,41 +1880,111 @@
     "id": "zhang-et-al-2026-decode-time-grammars",
     "title": "Decode-Time Grammars: Constrained LLM Generation over a Refinement Order of Grammar Fragments",
     "year": 2026,
-    "authors": ["Shuoming Zhang", "Ruiyuan Xu", "Haofeng Li", "Qiuchu Yu", "Yangyu Zhang", "Chunwei Xia", "Xiaobing Feng", "Chenxi Wang", "Huimin Cui", "Jiacheng Zhao"],
+    "authors": [
+      "Shuoming Zhang",
+      "Ruiyuan Xu",
+      "Haofeng Li",
+      "Qiuchu Yu",
+      "Yangyu Zhang",
+      "Chunwei Xia",
+      "Xiaobing Feng",
+      "Chenxi Wang",
+      "Huimin Cui",
+      "Jiacheng Zhao"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2607.18357",
     "code_url": null,
-    "specification": ["syntax", "schema", "state", "relation"],
-    "representation": ["cfg_parser", "membership_oracle"],
-    "allocation": ["local_masking"],
-    "placement": ["token", "field"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["language_soundness", "state_validity"],
-    "systems_measurements": ["compile_time", "host_memory", "latency", "cache_behavior"],
-    "outcome_measurements": ["format_validity", "execution_accuracy"],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; refinement-order semantics, dynamic references, and runtime measurements require full-text coding."
+    "specification": [
+      "syntax",
+      "schema",
+      "type",
+      "relation",
+      "state"
+    ],
+    "representation": [
+      "cfg_parser",
+      "token_index",
+      "membership_oracle"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "field",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask",
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "semantic_correctness"
+    ],
+    "systems_measurements": [
+      "throughput",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "execution_accuracy",
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Grammar fragments are indexed by an environment scope Gamma (in-scope names, sorts, schema entries, API members, tool state) and projected into typed slots at reference positions; enforcement is a token mask over a CFG recogniser, applied hole by hole across a sketch stage and a constrained-realisation stage. Theorem 1 gives no-ghost soundness conditional on the masking engine being an exact incremental recogniser; Proposition 3 shows no static masking family is both sound and non-blocking over an unbounded name space. Reports 10.6-17.8% throughput reduction versus XGrammar and SQL execution match rising from 76% to 100%."
   },
   {
     "id": "kuchnik-et-al-2022-relm",
     "title": "Validating Large Language Models with ReLM",
     "year": 2022,
-    "authors": ["Michael Kuchnik", "Virginia Smith", "George Amvrosiadis"],
+    "authors": [
+      "Michael Kuchnik",
+      "Virginia Smith",
+      "George Amvrosiadis"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["method", "evaluation", "adjacent_enforcement"],
+    "study_type": [
+      "method",
+      "evaluation",
+      "adjacent_enforcement"
+    ],
     "url": "https://arxiv.org/abs/2211.15458",
     "code_url": null,
-    "specification": ["lexical", "syntax", "semantic"],
-    "representation": ["regex_fsm"],
-    "allocation": ["deterministic_validation"],
-    "placement": ["sequence"],
-    "rejected_behavior": ["reject"],
-    "guarantees": ["language_soundness", "token_reachable_coverage"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["task_accuracy"],
+    "specification": [
+      "lexical",
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "regex_fsm"
+    ],
+    "allocation": [
+      "deterministic_validation"
+    ],
+    "placement": [
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "reject"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "token_reachable_coverage"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; this is adjacent validation/search rather than ordinary online token masking."
   },
@@ -801,20 +1992,49 @@
     "id": "lew-et-al-2023-smc-steering",
     "title": "Sequential Monte Carlo Steering of Large Language Models using Probabilistic Programs",
     "year": 2023,
-    "authors": ["Alexander K. Lew", "Tan Zhi-Xuan", "Gabriel Grand", "Vikash K. Mansinghka"],
+    "authors": [
+      "Alexander K. Lew",
+      "Tan Zhi-Xuan",
+      "Gabriel Grand",
+      "Vikash K. Mansinghka"
+    ],
     "venue": "PADL 2023",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2306.03081",
     "code_url": null,
-    "specification": ["semantic", "policy"],
-    "representation": ["programmatic"],
-    "allocation": ["sequential_monte_carlo", "importance_weighting"],
-    "placement": ["sequence", "multi_stage"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["distribution_divergence", "task_accuracy"],
+    "specification": [
+      "semantic",
+      "policy"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "sequential_monte_carlo",
+      "importance_weighting"
+    ],
+    "placement": [
+      "sequence",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "resample"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "distribution_divergence",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; probabilistic-program target and SMC approximation properties require full-text coding."
   },
@@ -822,20 +2042,51 @@
     "id": "alkhouli-et-al-2025-confetti",
     "title": "CONFETTI: Conversational Function-Calling Evaluation Through Turn-Level Interactions",
     "year": 2025,
-    "authors": ["Tamer Alkhouli", "Katerina Margatina", "James Gung", "Raphael Shu", "Claudia Zaghi", "Monica Sunkara", "Yi Zhang"],
+    "authors": [
+      "Tamer Alkhouli",
+      "Katerina Margatina",
+      "James Gung",
+      "Raphael Shu",
+      "Claudia Zaghi",
+      "Monica Sunkara",
+      "Yi Zhang"
+    ],
     "venue": "arXiv",
     "publication_status": "preprint",
-    "study_type": ["benchmark", "evaluation"],
+    "study_type": [
+      "benchmark",
+      "evaluation"
+    ],
     "url": "https://arxiv.org/abs/2506.01859",
     "code_url": null,
-    "specification": ["schema", "semantic", "state"],
-    "representation": ["framework_dependent"],
-    "allocation": ["framework_dependent"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["not_reported"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["execution_accuracy", "task_accuracy", "user_outcome"],
+    "specification": [
+      "schema",
+      "semantic",
+      "state"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "framework_dependent"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "not_reported"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "execution_accuracy",
+      "task_accuracy",
+      "user_outcome"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "arXiv metadata and abstract checked; included as an adjacent function-calling evaluation resource rather than a decoding algorithm."
   },
@@ -843,20 +2094,43 @@
     "id": "hokamp-liu-2017-grid-beam-search",
     "title": "Lexically Constrained Decoding for Sequence Generation Using Grid Beam Search",
     "year": 2017,
-    "authors": ["Chris Hokamp", "Qun Liu"],
+    "authors": [
+      "Chris Hokamp",
+      "Qun Liu"
+    ],
     "venue": "ACL 2017",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/P17-1141/",
     "code_url": null,
-    "specification": ["lexical"],
-    "representation": ["framework_dependent"],
-    "allocation": ["beam_search"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["prune"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["task_accuracy"],
+    "specification": [
+      "lexical"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "beam_search"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata and abstract checked; introduces grid beam search for required lexical phrases, with full algorithmic guarantee coding still pending."
   },
@@ -864,20 +2138,45 @@
     "id": "post-vilar-2018-dynamic-beam-allocation",
     "title": "Fast Lexically Constrained Decoding with Dynamic Beam Allocation for Neural Machine Translation",
     "year": 2018,
-    "authors": ["Matt Post", "David Vilar"],
+    "authors": [
+      "Matt Post",
+      "David Vilar"
+    ],
     "venue": "NAACL 2018",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "system", "evaluation"],
+    "study_type": [
+      "method",
+      "system",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/N18-1119/",
     "code_url": null,
-    "specification": ["lexical"],
-    "representation": ["framework_dependent"],
-    "allocation": ["beam_search"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["prune"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["latency", "throughput"],
-    "outcome_measurements": ["task_accuracy"],
+    "specification": [
+      "lexical"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "beam_search"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency",
+      "throughput"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata and abstract checked; reports dynamic beam allocation with complexity constant in the number of lexical constraints."
   },
@@ -885,20 +2184,50 @@
     "id": "hu-et-al-2019-vectorized-dba",
     "title": "Improved Lexically Constrained Decoding for Translation and Monolingual Rewriting",
     "year": 2019,
-    "authors": ["J. Edward Hu", "Huda Khayrallah", "Ryan Culkin", "Patrick Xia", "Tongfei Chen", "Matt Post", "Benjamin Van Durme"],
+    "authors": [
+      "J. Edward Hu",
+      "Huda Khayrallah",
+      "Ryan Culkin",
+      "Patrick Xia",
+      "Tongfei Chen",
+      "Matt Post",
+      "Benjamin Van Durme"
+    ],
     "venue": "NAACL 2019",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "system", "evaluation"],
+    "study_type": [
+      "method",
+      "system",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/N19-1090/",
     "code_url": null,
-    "specification": ["lexical"],
-    "representation": ["framework_dependent"],
-    "allocation": ["beam_search"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["prune"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["throughput", "batch_scaling"],
-    "outcome_measurements": ["task_accuracy"],
+    "specification": [
+      "lexical"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "beam_search"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "throughput",
+      "batch_scaling"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata and abstract checked; vectorized dynamic beam allocation is evaluated for batching and positive lexical constraints."
   },
@@ -906,20 +2235,49 @@
     "id": "deutsch-et-al-2019-constrained-sequential-inference",
     "title": "A General-Purpose Algorithm for Constrained Sequential Inference",
     "year": 2019,
-    "authors": ["Daniel Deutsch", "Shyam Upadhyay", "Dan Roth"],
+    "authors": [
+      "Daniel Deutsch",
+      "Shyam Upadhyay",
+      "Dan Roth"
+    ],
     "venue": "CoNLL 2019",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/K19-1045/",
     "code_url": null,
-    "specification": ["syntax", "semantic"],
-    "representation": ["regex_fsm", "pda"],
-    "allocation": ["beam_search", "local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask", "prune"],
-    "guarantees": ["language_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "regex_fsm",
+      "pda"
+    ],
+    "allocation": [
+      "beam_search",
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask",
+      "prune"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata, abstract, and algorithm excerpt checked; automata guide sequential inference and an active-set method is evaluated."
   },
@@ -927,20 +2285,54 @@
     "id": "shin-et-al-2021-constrained-language-models",
     "title": "Constrained Language Models Yield Few-Shot Semantic Parsers",
     "year": 2021,
-    "authors": ["Richard Shin", "Christopher Lin", "Sam Thomson", "Charles Chen", "Subhro Roy", "Emmanouil Antonios Platanios", "Adam Pauls", "Dan Klein", "Jason Eisner", "Benjamin Van Durme"],
+    "authors": [
+      "Richard Shin",
+      "Christopher Lin",
+      "Sam Thomson",
+      "Charles Chen",
+      "Subhro Roy",
+      "Emmanouil Antonios Platanios",
+      "Adam Pauls",
+      "Dan Klein",
+      "Jason Eisner",
+      "Benjamin Van Durme"
+    ],
     "venue": "EMNLP 2021",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "application", "evaluation"],
+    "study_type": [
+      "method",
+      "application",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2021.emnlp-main.608/",
     "code_url": null,
-    "specification": ["syntax", "semantic"],
-    "representation": ["framework_dependent"],
-    "allocation": ["local_masking"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["not_reported"],
-    "outcome_measurements": ["format_validity", "task_accuracy"],
+    "specification": [
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata and abstract checked; controlled-sublanguage generation is mapped to target meaning representations for few-shot parsing."
   },
@@ -948,20 +2340,49 @@
     "id": "beurer-kellner-et-al-2023-lmql",
     "title": "Prompting Is Programming: A Query Language for Large Language Models",
     "year": 2023,
-    "authors": ["Luca Beurer-Kellner", "Marc Fischer", "Martin T. Vechev"],
+    "authors": [
+      "Luca Beurer-Kellner",
+      "Marc Fischer",
+      "Martin T. Vechev"
+    ],
     "venue": "PLDI 2023",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "system", "evaluation"],
+    "study_type": [
+      "method",
+      "system",
+      "evaluation"
+    ],
     "url": "https://doi.org/10.1145/3591300",
     "code_url": "https://github.com/eth-sri/lmql",
-    "specification": ["lexical", "syntax", "semantic"],
-    "representation": ["programmatic"],
-    "allocation": ["local_masking", "framework_dependent"],
-    "placement": ["token", "multi_stage"],
-    "rejected_behavior": ["mask", "prune"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["task_accuracy"],
+    "specification": [
+      "lexical",
+      "syntax",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "local_masking",
+      "framework_dependent"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask",
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Official ETH publication metadata and abstract checked; LMQL compiles constraints and control flow into an inference procedure."
   },
@@ -969,20 +2390,51 @@
     "id": "agrawal-et-al-2023-monitor-guided-decoding",
     "title": "Monitor-Guided Decoding of Code LMs with Static Analysis of Repository Context",
     "year": 2023,
-    "authors": ["Lakshya A Agrawal", "Aditya Kanade", "Navin Goyal", "Shuvendu Lahiri", "Sriram Rajamani"],
+    "authors": [
+      "Lakshya A Agrawal",
+      "Aditya Kanade",
+      "Navin Goyal",
+      "Shuvendu Lahiri",
+      "Sriram Rajamani"
+    ],
     "venue": "NeurIPS 2023",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "system", "evaluation"],
+    "study_type": [
+      "method",
+      "system",
+      "evaluation"
+    ],
     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/662b1774ba8845fc1fa3d1fc0177ceeb-Abstract-Conference.html",
     "code_url": "https://github.com/microsoft/monitors4codegen",
-    "specification": ["type", "semantic", "state"],
-    "representation": ["programmatic", "membership_oracle"],
-    "allocation": ["local_masking"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["not_reported"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "execution_accuracy", "task_accuracy"],
+    "specification": [
+      "type",
+      "semantic",
+      "state"
+    ],
+    "representation": [
+      "programmatic",
+      "membership_oracle"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Official NeurIPS metadata and abstract checked; a static-analysis monitor constrains identifier generation using repository context."
   },
@@ -990,20 +2442,52 @@
     "id": "muendler-et-al-2025-type-constrained-code",
     "title": "Type-Constrained Code Generation with Language Models",
     "year": 2025,
-    "authors": ["Niels Mündler", "Jingxuan He", "Hao Wang", "Koushik Sen", "Dawn Song", "Martin Vechev"],
+    "authors": [
+      "Niels Mündler",
+      "Jingxuan He",
+      "Hao Wang",
+      "Koushik Sen",
+      "Dawn Song",
+      "Martin Vechev"
+    ],
     "venue": "PLDI 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "theory", "evaluation"],
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
     "url": "https://doi.org/10.1145/3729274",
     "code_url": "https://github.com/eth-sri/type-constrained-code-generation",
-    "specification": ["type", "semantic"],
-    "representation": ["programmatic", "solver"],
-    "allocation": ["local_masking", "lookahead"],
-    "placement": ["token"],
-    "rejected_behavior": ["mask"],
-    "guarantees": ["type_soundness"],
-    "systems_measurements": ["latency"],
-    "outcome_measurements": ["format_validity", "execution_accuracy", "task_accuracy"],
+    "specification": [
+      "type",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic",
+      "solver"
+    ],
+    "allocation": [
+      "local_masking",
+      "lookahead"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "type_soundness"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "Official PLDI metadata and abstract checked; the work formalizes prefix automata and inhabitable-type search for well-typed generation."
   },
@@ -1011,20 +2495,47 @@
     "id": "xefteri-et-al-2025-syntactic-posterior",
     "title": "Syntactic Control of Language Models by Posterior Inference",
     "year": 2025,
-    "authors": ["Vicky Xefteri", "Tim Vieira", "Ryan Cotterell", "Afra Amini"],
+    "authors": [
+      "Vicky Xefteri",
+      "Tim Vieira",
+      "Ryan Cotterell",
+      "Afra Amini"
+    ],
     "venue": "Findings of ACL 2025",
     "publication_status": "peer_reviewed",
-    "study_type": ["method", "evaluation"],
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
     "url": "https://aclanthology.org/2025.findings-acl.1300/",
     "code_url": null,
-    "specification": ["syntax"],
-    "representation": ["classifier", "programmatic"],
-    "allocation": ["sequential_monte_carlo", "importance_weighting"],
-    "placement": ["multi_stage"],
-    "rejected_behavior": ["resample"],
-    "guarantees": ["distribution_fidelity"],
-    "systems_measurements": ["end_to_end_cost"],
-    "outcome_measurements": ["task_accuracy", "distribution_divergence"],
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "classifier",
+      "programmatic"
+    ],
+    "allocation": [
+      "sequential_monte_carlo",
+      "importance_weighting"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "resample"
+    ],
+    "guarantees": [
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "distribution_divergence"
+    ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata and abstract checked; posterior inference combines SMC with a syntactic tagger for target constituency structure."
   }

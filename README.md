@@ -1,88 +1,210 @@
-# Constrained Decoding Atlas
+<p align="center">
+  <img src="assets/banner.svg" alt="Constrained Decoding Atlas" width="100%">
+</p>
 
-[![Catalog](https://img.shields.io/badge/catalog-49%20papers-58e1d5)](https://rainiver.github.io/constrained-decoding-atlas/)
+<div align="center">
+
+**A living, evidence-coded map of constrained generation for language models.**
+
+49 papers · 26 full texts reviewed · 17 fully coded · 2017–2026
+
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![GitHub stars](https://img.shields.io/github/stars/Rainiver/constrained-decoding-atlas?style=social)](https://github.com/Rainiver/constrained-decoding-atlas/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Rainiver/constrained-decoding-atlas?style=social)](https://github.com/Rainiver/constrained-decoding-atlas/forks)
+[![Catalog](https://img.shields.io/badge/catalog-49%20papers-58e1d5)](#papers)
+[![Full text reviewed](https://img.shields.io/badge/full--text%20reviewed-26%2F49-6ee7b7)](#papers)
 [![Validate](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/validate.yml/badge.svg)](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/validate.yml)
-[![Pages](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/pages.yml/badge.svg)](https://rainiver.github.io/constrained-decoding-atlas/)
-[![License: CC BY 4.0](https://img.shields.io/badge/data%20%26%20docs-CC%20BY%204.0-ae8cff)](DATA_LICENSE.md)
+[![Release](https://img.shields.io/github/v/release/Rainiver/constrained-decoding-atlas?color=ae8cff)](https://github.com/Rainiver/constrained-decoding-atlas/releases)
 
-> An evidence-coded map of constrained generation, structured output, and
-> runtime enforcement for language models.
+**[Papers](#papers)** · **[Libraries](#libraries--engines)** · **[Start here](#start-here)** · **[Taxonomy](docs/taxonomy.md)** · **[Interactive filters](https://rainiver.github.io/constrained-decoding-atlas/)** · **[Contribute](#contributing)**
 
-**Status:** public preview `v0.1`. The Atlas currently indexes 49 heterogeneous
-works. Coverage is intentionally transparent rather than presented as a
-complete or systematic census; 40 discovery records still await full-text
-coding.
+</div>
 
-## Why another repository?
+Beyond links, every record is coded by **what it constrains, how it is
+represented, where enforcement acts, what happens after rejection, what it
+guarantees, and what it measures**. The full catalog lives directly in this
+README; the website is an optional power-user view.
 
-Awesome lists answer **what exists**. This Atlas is designed to answer:
+## What's new
 
-- What kind of constraint is specified?
-- How is it represented and executed?
-- How does it change decoding or search?
-- Where in the generation-to-commit lifecycle does it act?
-- What does it actually guarantee—and under which assumptions?
-- Which compile, memory, latency, quality, and downstream effects were measured?
-- Which claims were checked from full text rather than inferred from titles?
+- **2026-07-31 — 26 full texts reviewed.** Seven new full-text codings:
+  [DCCD](https://arxiv.org/abs/2603.03305),
+  [DISC](https://arxiv.org/abs/2504.09135),
+  [Formatron](https://arxiv.org/abs/2506.01151),
+  [automata-based constraints](https://arxiv.org/abs/2407.08103),
+  [GreatGramma](https://arxiv.org/abs/2502.05111),
+  [Let Me Speak Freely](https://arxiv.org/abs/2408.02442), and
+  [Thinking Before Constraining](https://arxiv.org/abs/2601.07525).
+- **v0.2.0 — README-first release.** The paper map, field snapshot, libraries,
+  and evidence status are visible without leaving GitHub.
+- **v0.1.0 — public launch.** Searchable site, machine-readable catalog,
+  evidence levels, CI validation, and scheduled link checks.
 
-Every record follows a controlled taxonomy and carries an evidence status.
-Missing measurements are recorded as `not_reported`, never as zero.
+## Libraries & engines
 
-## Browse the Atlas
+**Open source:** [XGrammar](https://github.com/mlc-ai/xgrammar) ·
+[llguidance](https://github.com/guidance-ai/llguidance) ·
+[Outlines](https://github.com/dottxt-ai/outlines) ·
+[Guidance](https://github.com/guidance-ai/guidance) ·
+[Formatron](https://github.com/Dan-wanna-M/formatron) ·
+[SynCode](https://github.com/uiuc-focal-lab/syncode) ·
+[transformers-CFG](https://github.com/epfl-dlab/transformers-CFG) ·
+[genlm-control](https://github.com/probcomp/genlm-control) ·
+[LMQL](https://github.com/eth-sri/lmql) ·
+[llama.cpp grammars](https://github.com/ggml-org/llama.cpp/tree/master/grammars) ·
+[LM Format Enforcer](https://github.com/noamgat/lm-format-enforcer)
 
-- [Interactive website](https://rainiver.github.io/constrained-decoding-atlas/)
-- [Taxonomy](docs/taxonomy.md)
-- [Guarantees: what the labels mean](docs/guarantees.md)
-- [Practitioner decision guide](docs/decision-guide.md)
-- [Generated catalog](docs/catalog.md)
-- [Evidence coverage snapshot](docs/coverage.md)
-- [Corpus and coding methodology](docs/methodology.md)
-- [Machine-readable paper catalog](data/papers.json)
-- [Contribution guide](CONTRIBUTING.md)
-- [Roadmap](ROADMAP.md)
+**Hosted:** [OpenAI Structured Outputs](https://openai.com/index/introducing-structured-outputs-in-the-api/) ·
+[Gemini structured output](https://ai.google.dev/gemini-api/docs/structured-output)
 
-## The seven views
+**Benchmark:** [JSONSchemaBench](https://arxiv.org/abs/2501.10868) compares
+coverage, quality, and performance across structured-output engines.
 
-| View | Questions encoded |
-|---|---|
-| Specification | lexical, syntax, schema, type, semantic, relation, state, policy |
-| Representation | regex/FSM, CFG/parser, trie, token index, program, solver, oracle |
-| Allocation | local mask, lookahead, rejection, SMC, beam/search, draft, retry, validation |
-| Placement | token, field/span, completed sequence, action boundary, commit |
-| Guarantees | soundness, token coverage, totality, distribution, semantics, freshness, authorization |
-| Systems | compile time, memory, latency, throughput, batching, cache behavior |
-| Evaluation | format, task quality, distribution, external effects, reproducibility |
+## Field snapshot
 
-## What this repository is not
+<!-- STATS:START -->
+<!-- Generated by scripts/generate_views.py; edit data/papers.json instead. -->
 
-- It is not currently a claim to be the first survey of constrained
-  generation. A peer-reviewed TMLR survey already exists.
-- It does not rank systems using incomparable numbers.
-- It does not treat an unreported metric as a failed metric.
-- It does not copy paper abstracts; summaries and coding notes must be original.
-- It is not the archival contribution of any associated empirical paper.
+| What gets constrained | Papers | | Where enforcement acts | Papers |
+|---|---:|---|---|---:|
+| Syntax | 36 (73%) || Token | 39 (80%) |
+| Schema | 23 (47%) || Multi-stage | 21 (43%) |
+| Semantics | 22 (45%) || Completed sequence | 7 (14%) |
+| Lexical | 10 (20%) || **Field / span** | 4 (8%) |
+| Types | 5 (10%) || | |
+| Relations across fields | 6 (12%) || **What happens to a rejected token** | |
+| **Mutable world state** | 4 (8%) || Masked or pruned | 40 |
+| **Policy / authorization** | 2 (4%) || Resampled or regenerated | 11 |
+| | || **Repaired in place** | **1** |
 
-## Validate locally
+*Current Atlas snapshot: 49 records; 17 fully coded, 9 screened, 23 metadata-verified.* Token-time enforcement appears in 39/49 records, while mutable state appears in 4/49 and policy in 2/49. These are catalog coverage gaps, not field-wide prevalence estimates.
 
-```bash
-python3 scripts/validate_catalog.py
-```
+<!-- STATS:END -->
 
-The same check runs on every pull request.
+## Start here
 
-## License
+| | Paper | Why |
+|---|---|---|
+| 2021 | [PICARD](https://aclanthology.org/2021.emnlp-main.779/) · EMNLP | An influential template for incremental parsing during decoding. |
+| 2024 | [DOMINO](https://proceedings.mlr.press/v235/beurer-kellner24a.html) · ICML | Tokenization and grammars do not align. Naive masking distorts the model. |
+| 2024 | [XGrammar](https://arxiv.org/abs/2411.15100) | A widely deployed structured-generation engine with reusable grammar compilation. |
+| 2024 | [ASAp](https://arxiv.org/abs/2405.21047) | Shows that masking is not grammar-conditioned sampling and targets the resulting bias. |
+| 2025 | [CRANE](https://arxiv.org/abs/2502.09061) | Formalizes when restrictive grammars limit reasoning; interleaves free reasoning with constrained answers. |
+| 2025 | [AdapTrack](https://arxiv.org/abs/2510.17376) | `matrix_rank` blocked → model emits `matrix_power`, which it rated 0.20%. |
+| 2026 | [The Constraint Tax](https://arxiv.org/abs/2605.26128) | Measures when hard schemas improve validity while reducing executable correctness. |
+| 2026 | [Future Validity](https://arxiv.org/abs/2605.07698) | Quantifies the distributional bias introduced by locally masking invalid next tokens. |
 
-- Validation and generation code: [MIT](LICENSE).
-- Original catalog annotations and documentation: [CC BY 4.0](DATA_LICENSE.md).
-- Paper titles, author names, venue metadata, and outbound links remain
-  bibliographic facts or third-party material; this repository does not
-  redistribute paper text.
+## Papers
 
-## Current release target
+<!-- CATALOG:START -->
+<!-- Generated by scripts/generate_views.py; edit data/papers.json instead. -->
 
-Release `v0.1` contains 49 heterogeneous records across formal-language
-decoding, probabilistic constrained inference, serving systems,
-structured-output benchmarks, and runtime enforcement. Evidence depth remains
-visible per record: metadata-only entries are discoverable but excluded from
-strong synthesis until full-text coding is complete. See the
-[changelog](CHANGELOG.md) for snapshot details.
+### The frontier: constraints that depend on state, relations, or policy
+
+Works addressing state-, relation-, or policy-dependent constraints. 11 of 49 records.
+
+| | Year | Work | Constrains | Enforced at | Represented as |
+|:-:|---:|---|---|---|---|
+| ● | 2026 | [Decode-Time Grammars](https://arxiv.org/abs/2607.18357) | syntax, schema, type +2 | token, field, multi-stage | CFG, token index, oracle |
+| ◐ | 2026 | [XGrammar-2](https://arxiv.org/abs/2601.04426) | syntax, schema, state | token, field | CFG, PDA, token index |
+| ● | 2025 | [ChopChop](https://arxiv.org/abs/2509.00360) | syntax, type, semantic +1 | token | program, CFG, solver |
+| ○ | 2025 | [CONFETTI](https://arxiv.org/abs/2506.01859) | schema, semantic, state | multi-stage | varies |
+| ● | 2025 | [Syntactic and Semantic Control of Large Language Models via Sequential Monte Carlo](https://arxiv.org/abs/2504.13139) · ICLR 2025 | syntax, semantic, relation | token, sequence, multi-stage | CFG, program, oracle |
+| ● | 2024 | [FANTAstic SEquences and Where to Find Them](https://arxiv.org/abs/2407.13945) | schema, semantic, relation | token, field | trie, token index |
+| ○ | 2024 | [IterGen: Iterative Semantic-aware Structured LLM Generation with Backtracking](https://arxiv.org/abs/2410.07295) · ICLR 2025 | schema, semantic, relation | field, multi-stage | program |
+| ○ | 2024 | [We Need Structured Output](https://doi.org/10.1145/3613905.3650756) · CHI Extended Abstracts | syntax, schema, semantic +1 | multi-stage | varies |
+| ○ | 2023 | [Monitor-Guided Decoding of Code LMs with Static Analysis of Repository Context](https://proceedings.neurips.cc/paper_files/paper/2023/hash/662b1774ba8845fc1fa3d1fc0177ceeb-Abstract-Conference.html) · NeurIPS 2023 | type, semantic, state | token | program, oracle |
+| ○ | 2023 | [Sequential Monte Carlo Steering of Large Language Models using Probabilistic Programs](https://arxiv.org/abs/2306.03081) · PADL 2023 | semantic, policy | sequence, multi-stage | program |
+| ◐ | 2021 | [PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models](https://aclanthology.org/2021.emnlp-main.779/) · EMNLP 2021 | syntax, semantic, relation | token | CFG, oracle |
+
+### Full catalog
+
+All 49 records, newest first. ● fully coded · ◐ full text screened · ○ metadata verified.
+
+| | Year | Work | Constrains | Enforced at | Represented as |
+|:-:|---:|---|---|---|---|
+| ● | 2026 | [Accelerating Constrained Decoding with Token Space Compression](https://arxiv.org/abs/2605.29986) | syntax | token | CFG, PDA, token index |
+| ● | 2026 | [Decode-Time Grammars](https://arxiv.org/abs/2607.18357) | syntax, schema, type +2 | token, field, multi-stage | CFG, token index, oracle |
+| ● | 2026 | [Draft-Conditioned Constrained Decoding for Structured Generation in LLMs](https://arxiv.org/abs/2603.03305) | syntax, schema | token, multi-stage | FSM, CFG |
+| ● | 2026 | [Future Validity is the Missing Statistic](https://arxiv.org/abs/2605.07698) | syntax, schema | token | CFG, FSM, trie |
+| ◐ | 2026 | [The Constraint Tax](https://arxiv.org/abs/2605.26128) | syntax, schema | token, multi-stage | varies |
+| ● | 2026 | [Thinking Before Constraining](https://arxiv.org/abs/2601.07525) | syntax, schema | token, multi-stage | FSM |
+| ◐ | 2026 | [XGrammar-2](https://arxiv.org/abs/2601.04426) | syntax, schema, state | token, field | CFG, PDA, token index |
+| ● | 2025 | [AdapTrack](https://arxiv.org/abs/2510.17376) | syntax, semantic | token, multi-stage | oracle, program |
+| ● | 2025 | [ChopChop](https://arxiv.org/abs/2509.00360) | syntax, type, semantic +1 | token | program, CFG, solver |
+| ○ | 2025 | [CONFETTI](https://arxiv.org/abs/2506.01859) | schema, semantic, state | multi-stage | varies |
+| ● | 2025 | [CRANE: Reasoning with constrained LLM generation](https://arxiv.org/abs/2502.09061) · ICML 2025 | syntax, semantic | token, multi-stage | CFG |
+| ● | 2025 | [Earley-Driven Dynamic Pruning for Efficient Structured Decoding](https://arxiv.org/abs/2506.01151) · ICML 2025 | syntax, schema | token | CFG, FSM |
+| ● | 2025 | [Efficient and Asymptotically Unbiased Constrained Decoding for Large Language Models](https://arxiv.org/abs/2504.09135) · AISTATS 2025 | lexical, schema | token, sequence | token index, trie |
+| ○ | 2025 | [Fast Controlled Generation from Language Models with Adaptive Weighted Rejection Sampling](https://openreview.net/forum?id=3BmPSFAdq3) · COLM | lexical, syntax, semantic | token, sequence | program |
+| ● | 2025 | [Flexible and Efficient Grammar-Constrained Decoding](https://arxiv.org/abs/2502.05111) | syntax | token | CFG, FSM, token index |
+| ● | 2025 | [Generating Structured Outputs from Language Models](https://arxiv.org/abs/2501.10868) | schema | token | varies |
+| ◐ | 2025 | [Grammar-Constrained Decoding Makes Large Language Models Better Logical Parsers](https://aclanthology.org/2025.acl-industry.34/) · ACL 2025 Industry Track | syntax, semantic | token | CFG |
+| ◐ | 2025 | [GRAMMAR-LLM](https://aclanthology.org/2025.findings-acl.177/) · Findings of ACL 2025 | syntax, schema | token | CFG |
+| ◐ | 2025 | [Pre3: Enabling Deterministic Pushdown Automata for Faster Structured LLM Generation](https://aclanthology.org/2025.acl-long.551/) · ACL 2025 | syntax, schema | token | PDA, token index |
+| ● | 2025 | [Syntactic and Semantic Control of Large Language Models via Sequential Monte Carlo](https://arxiv.org/abs/2504.13139) · ICLR 2025 | syntax, semantic, relation | token, sequence, multi-stage | CFG, program, oracle |
+| ○ | 2025 | [Syntactic Control of Language Models by Posterior Inference](https://aclanthology.org/2025.findings-acl.1300/) · Findings of ACL 2025 | syntax | multi-stage | classifier, program |
+| ○ | 2025 | [The Hidden Cost of Structure](https://aclanthology.org/2025.ranlp-1.124/) · RANLP | syntax, schema | token | varies |
+| ○ | 2025 | [Type-Constrained Code Generation with Language Models](https://doi.org/10.1145/3729274) · PLDI 2025 | type, semantic | token | program, solver |
+| ◐ | 2025 | [Why is constrained neural language generation particularly challenging?](https://openreview.net/forum?id=Vwgjk5ysWn) · TMLR | lexical, syntax, semantic | multi-stage | varies |
+| ● | 2024 | [Automata-based constraints for language model decoding](https://arxiv.org/abs/2407.08103) · COLM 2024 | syntax, schema | token | FSM, PDA |
+| ● | 2024 | [FANTAstic SEquences and Where to Find Them](https://arxiv.org/abs/2407.13945) | schema, semantic, relation | token, field | trie, token index |
+| ● | 2024 | [Grammar-Aligned Decoding](https://arxiv.org/abs/2405.21047) | syntax | token | CFG, trie, token index |
+| ◐ | 2024 | [Guiding LLMs The Right Way](https://proceedings.mlr.press/v235/beurer-kellner24a.html) · ICML 2024 | syntax, schema | token | FSM, CFG, token index |
+| ○ | 2024 | [IterGen: Iterative Semantic-aware Structured LLM Generation with Backtracking](https://arxiv.org/abs/2410.07295) · ICLR 2025 | schema, semantic, relation | field, multi-stage | program |
+| ● | 2024 | [Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models](https://arxiv.org/abs/2408.02442) · EMNLP 2024 Industry Track | syntax, schema | token, multi-stage | CFG, varies |
+| ○ | 2024 | [Sketch-Guided Constrained Decoding for Boosting Blackbox Large Language Models without Logit Access](https://arxiv.org/abs/2401.09967) · ACL 2024 | syntax, schema | multi-stage | program |
+| ○ | 2024 | [SynCode: LLM Generation with Grammar Augmentation](https://arxiv.org/abs/2403.01632) | syntax, schema | token | CFG |
+| ○ | 2024 | [We Need Structured Output](https://doi.org/10.1145/3613905.3650756) · CHI Extended Abstracts | syntax, schema, semantic +1 | multi-stage | varies |
+| ◐ | 2024 | [XGrammar](https://arxiv.org/abs/2411.15100) | syntax, schema | token | CFG, PDA, token index |
+| ○ | 2023 | [Grammar-Constrained Decoding for Structured NLP Tasks without Finetuning](https://aclanthology.org/2023.emnlp-main.674/) · EMNLP | syntax | token | CFG |
+| ○ | 2023 | [Monitor-Guided Decoding of Code LMs with Static Analysis of Repository Context](https://proceedings.neurips.cc/paper_files/paper/2023/hash/662b1774ba8845fc1fa3d1fc0177ceeb-Abstract-Conference.html) · NeurIPS 2023 | type, semantic, state | token | program, oracle |
+| ○ | 2023 | [Prompting Is Programming](https://doi.org/10.1145/3591300) · PLDI 2023 | lexical, syntax, semantic | token, multi-stage | program |
+| ○ | 2023 | [Sequential Monte Carlo Steering of Large Language Models using Probabilistic Programs](https://arxiv.org/abs/2306.03081) · PADL 2023 | semantic, policy | sequence, multi-stage | program |
+| ○ | 2023 | [SGLang: Efficient Execution of Structured Language Model Programs](https://arxiv.org/abs/2312.07104) | syntax, schema | multi-stage | FSM, program |
+| ○ | 2023 | [Tractable Control for Autoregressive Language Generation](https://arxiv.org/abs/2304.07438) · ICML 2023 | lexical, semantic | sequence | program |
+| ○ | 2022 | [Synchromesh](https://arxiv.org/abs/2201.11227) · ICLR 2022 | syntax, semantic, type | token | program, oracle |
+| ○ | 2022 | [Validating Large Language Models with ReLM](https://arxiv.org/abs/2211.15458) | lexical, syntax, semantic | sequence | FSM |
+| ○ | 2021 | [Constrained Language Models Yield Few-Shot Semantic Parsers](https://aclanthology.org/2021.emnlp-main.608/) · EMNLP 2021 | syntax, semantic | token, multi-stage | varies |
+| ○ | 2021 | [NeuroLogic Decoding](https://aclanthology.org/2021.naacl-main.339/) · NAACL 2021 | lexical, semantic | token, sequence | program |
+| ◐ | 2021 | [PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models](https://aclanthology.org/2021.emnlp-main.779/) · EMNLP 2021 | syntax, semantic, relation | token | CFG, oracle |
+| ○ | 2019 | [A General-Purpose Algorithm for Constrained Sequential Inference](https://aclanthology.org/K19-1045/) · CoNLL 2019 | syntax, semantic | token | FSM, PDA |
+| ○ | 2019 | [Improved Lexically Constrained Decoding for Translation and Monolingual Rewriting](https://aclanthology.org/N19-1090/) · NAACL 2019 | lexical | token, multi-stage | varies |
+| ○ | 2018 | [Fast Lexically Constrained Decoding with Dynamic Beam Allocation for Neural Machine Translation](https://aclanthology.org/N18-1119/) · NAACL 2018 | lexical | token, multi-stage | varies |
+| ○ | 2017 | [Lexically Constrained Decoding for Sequence Generation Using Grid Beam Search](https://aclanthology.org/P17-1141/) · ACL 2017 | lexical | token, multi-stage | varies |
+
+<!-- CATALOG:END -->
+
+## What the symbols mean
+
+● fully coded from the paper · ◐ full text screened · ○ metadata verified.
+
+Catalog columns — **Constrains**: lexical · syntax · schema · type · semantic · relation · state · policy ·
+**Enforced at**: token · field · sequence · multi-stage ·
+**Represented as**: FSM · CFG · PDA · trie · token index · program · solver · oracle.
+
+Also coded but not shown: allocation, guarantees, systems and outcome measurements — see
+[`data/papers.json`](data/papers.json), [taxonomy](docs/taxonomy.md), [guarantees](docs/guarantees.md).
+Unmeasured quantities are `not_reported`, never zero.
+
+## Contributing
+
+[Add a paper](https://github.com/Rainiver/constrained-decoding-atlas/issues/new?template=add-paper.yml) ·
+[fix a coding](https://github.com/Rainiver/constrained-decoding-atlas/issues/new) ·
+[rules](CONTRIBUTING.md). Edit `data/papers.json`, then `python3 scripts/generate_views.py`.
+
+**Most wanted:** records marked ○ need full-text review; records marked ◐ need
+complete axis-by-axis coding. A PDF is welcome when no HTML version exists.
+
+## Data & scope
+
+Curated and broad, not a systematic census. The Atlas covers 2017–2026 across
+formal-language decoding, probabilistic inference, serving systems, benchmarks,
+and runtime enforcement. Snapshot counts describe this catalog, not the whole
+field. [Methodology](docs/methodology.md) · [JSON data](data/papers.json) ·
+[filterable site](https://rainiver.github.io/constrained-decoding-atlas/).
+
+Seeded from [Awesome-LLM-Constrained-Decoding](https://github.com/Saibo-creator/Awesome-LLM-Constrained-Decoding)
+by [Saibo Geng](https://github.com/Saibo-creator) and contributors — go there for the broader list.
+
+Code [MIT](LICENSE) · annotations [CC BY 4.0](DATA_LICENSE.md) · no paper text redistributed.
