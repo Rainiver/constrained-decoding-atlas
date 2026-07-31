@@ -7,12 +7,18 @@ metadata corrections increment the patch version.
 
 ## Unreleased
 
-- simplified the README for direct browsing and removed per-row evidence
-  symbols while retaining review status in the data and filterable site;
+- simplified the README for direct browsing and replaced the three-state row
+  legend with a single lightweight dagger for records checked against full text;
 - removed redundant generated catalog/coverage files and internal planning
   documents superseded by the README and public release history;
 - restricted website synthesis charts to fully coded records;
-- expanded the engine list and recorded a formal coverage-gap audit.
+- expanded the engine list and recorded a formal coverage-gap audit;
+- added and fully coded 13 priority works covering the Outlines and ToolDec
+  foundations, token-format effects, context-sensitive quotienting, logical
+  constraints, lookahead and speculative search, distribution-preserving
+  proposals, three diffusion-LLM methods, and the COLLIE and StructEval
+  benchmarks; the catalog now contains 62 records, 39 checked against full
+  text.
 
 ## [0.2.0] — 2026-07-31
 

@@ -2538,5 +2538,696 @@
     ],
     "review_status": "metadata_verified",
     "evidence_note": "ACL Anthology metadata and abstract checked; posterior inference combines SMC with a syntactic tagger for target constituency structure."
+  },
+  {
+    "id": "willard-louf-2023-efficient-guided-generation",
+    "title": "Efficient Guided Generation for Large Language Models",
+    "year": 2023,
+    "authors": [
+      "Brandon T. Willard",
+      "Rémi Louf"
+    ],
+    "venue": "arXiv",
+    "publication_status": "preprint",
+    "study_type": [
+      "method",
+      "system",
+      "theory",
+      "evaluation"
+    ],
+    "url": "https://arxiv.org/abs/2307.09702",
+    "code_url": "https://github.com/dottxt-ai/outlines",
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "cfg_parser",
+      "pda",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "compile_time",
+      "host_memory",
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Reformulates regex- and CFG-guided generation as iterative FSM/PDA processing, pre-indexing vocabulary transitions so valid-token retrieval is O(1) on average rather than scanning the vocabulary. The Outlines implementation masks invalid next tokens and guarantees generated structure under the supported grammar assumptions. Reports construction time, per-token overhead, and an approximately 50 MB naively built Python-grammar index."
+  },
+  {
+    "id": "zhang-et-al-2023-tooldec",
+    "title": "Don't Fine-Tune, Decode: Syntax Error-Free Tool Use via Constrained Decoding",
+    "year": 2023,
+    "authors": [
+      "Kexun Zhang",
+      "Hongqiao Chen",
+      "Lei Li",
+      "William Yang Wang"
+    ],
+    "venue": "arXiv",
+    "publication_status": "preprint",
+    "study_type": [
+      "method",
+      "evaluation",
+      "application"
+    ],
+    "url": "https://arxiv.org/abs/2310.07075",
+    "code_url": "https://github.com/chenhongqiao/tooldec",
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "token_index"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "latency",
+      "device_memory"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Compiles tool syntax into an FSM, maps valid character transitions to model tokens, and masks invalid next tokens during inference. Across ToolEval and FuncQA it eliminates syntax errors and measures downstream tool-use accuracy; the paper also reports negligible additional compute and memory overhead relative to model inference. The guarantee is syntactic membership, not correct tool or argument selection."
+  },
+  {
+    "id": "yao-et-al-2024-collie",
+    "title": "COLLIE: Systematic Construction of Constrained Text Generation Tasks",
+    "year": 2024,
+    "authors": [
+      "Shunyu Yao",
+      "Howard Chen",
+      "Austin W. Hanjie",
+      "Runzhe Yang",
+      "Karthik Narasimhan"
+    ],
+    "venue": "ICLR 2024",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "benchmark",
+      "evaluation"
+    ],
+    "url": "https://openreview.net/forum?id=kxgSlyirUZ",
+    "code_url": "https://collie-benchmark.github.io/",
+    "specification": [
+      "lexical",
+      "syntax",
+      "semantic",
+      "relation"
+    ],
+    "representation": [
+      "cfg_parser",
+      "programmatic"
+    ],
+    "allocation": [
+      "framework_dependent"
+    ],
+    "placement": [
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "not_applicable"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text and archival OpenReview record. Defines a grammar for compositional count and position constraints across character, word, sentence, paragraph, and passage levels; compiles 13 constraint structures into COLLIE-v1 and evaluates completed generations with executable checks. It is a benchmark and constraint-construction framework, not a token-time enforcement method, so allocation is framework-dependent and no decoding guarantee is assigned."
+  },
+  {
+    "id": "melcer-et-al-2024-context-sensitive-quotienting",
+    "title": "Constrained Decoding for Fill-in-the-Middle Code Language Models via Efficient Left and Right Quotienting of Context-Sensitive Grammars",
+    "year": 2024,
+    "authors": [
+      "Daniel Melcer",
+      "Nathan Fulton",
+      "Sanjay Krishna Gouda",
+      "Haifeng Qian"
+    ],
+    "venue": "arXiv",
+    "publication_status": "preprint",
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
+    "url": "https://arxiv.org/abs/2402.17988",
+    "code_url": "https://github.com/amazon-science/incremental-parsing",
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "regex_fsm",
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Extends Earley parsing with left and right language quotients so fill-in-the-middle code is checked against both contexts, including practical handling of lexing and Python indentation. Greedy decoding rejects candidates that cannot connect to the suffix and evaluates 95,390 examples in each of two Python FIM datasets. No blanket language-soundness label is assigned because the documented whitespace-sensitive implementation deliberately accepts a completeness–soundness tradeoff and can admit some invalid programs."
+  },
+  {
+    "id": "lu-et-al-2022-neurologic-astar",
+    "title": "NeuroLogic A*esque Decoding: Constrained Text Generation with Lookahead Heuristics",
+    "year": 2022,
+    "authors": [
+      "Ximing Lu",
+      "Sean Welleck",
+      "Peter West",
+      "Liwei Jiang",
+      "Jungo Kasai",
+      "Daniel Khashabi",
+      "Ronan Le Bras",
+      "Lianhui Qin",
+      "Youngjae Yu",
+      "Rowan Zellers",
+      "Noah A. Smith",
+      "Yejin Choi"
+    ],
+    "venue": "NAACL 2022",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "evaluation"
+    ],
+    "url": "https://aclanthology.org/2022.naacl-main.57/",
+    "code_url": null,
+    "specification": [
+      "lexical",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "beam_search",
+      "lookahead"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "prune"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Adds A*-inspired future-cost estimates to NeuroLogic's beam search so partial hypotheses are ranked by both model score and predicted future constraint satisfaction. Evaluates five tasks including CommonGen, table-to-text, constrained translation, and question generation. The method improves empirical constraint satisfaction and task metrics but does not state a hard satisfaction or distributional guarantee."
+  },
+  {
+    "id": "ma-hu-2025-logically-constrained-decoding",
+    "title": "Logically Constrained Decoding",
+    "year": 2025,
+    "authors": [
+      "Franklin Ma",
+      "Alan J. Hu"
+    ],
+    "venue": "MathNLP 2025",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "application",
+      "evaluation"
+    ],
+    "url": "https://aclanthology.org/2025.mathnlp-main.11/",
+    "code_url": "https://github.com/terwo/logically-constrained-decoding",
+    "specification": [
+      "syntax",
+      "semantic",
+      "state"
+    ],
+    "representation": [
+      "programmatic",
+      "membership_oracle"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "semantic_correctness",
+      "state_validity"
+    ],
+    "systems_measurements": [
+      "throughput"
+    ],
+    "outcome_measurements": [
+      "execution_accuracy",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. A symbolic engine updates an explicit world model while decoding and permits only prefixes of legal chess moves or sound propositional-resolution steps. The construction supplies semantic/state validity for the checked step under the chess or proof oracle, while experiments measure legal-play/proof outcomes across several model families and report token-throughput overhead. It does not claim general mathematical correctness beyond the two implemented world models."
+  },
+  {
+    "id": "nakshatri-et-al-2025-cdsl",
+    "title": "Constrained Decoding with Speculative Lookaheads",
+    "year": 2025,
+    "authors": [
+      "Nishanth Sridhar Nakshatri",
+      "Shamik Roy",
+      "Rajarshi Das",
+      "Suthee Chaidaroon",
+      "Leonid Boytsov",
+      "Rashmi Gangadharaiah"
+    ],
+    "venue": "NAACL 2025",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "system",
+      "evaluation"
+    ],
+    "url": "https://aclanthology.org/2025.naacl-long.239/",
+    "code_url": "https://github.com/amazon-science/CDSL-NAACL2025",
+    "specification": [
+      "lexical",
+      "semantic"
+    ],
+    "representation": [
+      "classifier",
+      "programmatic"
+    ],
+    "allocation": [
+      "beam_search",
+      "lookahead",
+      "draft_conditioning",
+      "speculative"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "prune",
+      "resample"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency",
+      "throughput",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Uses a smaller draft model to speculate lookahead continuations, validates them with the target model and task reward, and accepts or rejects speculative paths inside constrained beam search. Evaluates sentiment, harmlessness, toxicity, and lexical-control tasks while reporting inference speedup and reward/constraint performance. The speed–quality method is empirical and does not provide a hard constraint-satisfaction guarantee."
+  },
+  {
+    "id": "muendler-et-al-2025-diffusion-cfg",
+    "title": "Constrained Decoding of Diffusion LLMs with Context-Free Grammars",
+    "year": 2025,
+    "authors": [
+      "Niels Mündler",
+      "Jasper Dekoninck",
+      "Martin Vechev"
+    ],
+    "venue": "arXiv",
+    "publication_status": "preprint",
+    "study_type": [
+      "method",
+      "theory",
+      "system",
+      "evaluation"
+    ],
+    "url": "https://arxiv.org/abs/2508.10111",
+    "code_url": "https://github.com/eth-sri/constrained-diffusion",
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "token_reachable_coverage"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Reduces diffusion and multi-region infilling feasibility to emptiness of the intersection between a CFG and a regular language, then uses that decision procedure to retain exactly token assignments that admit a valid completion. Evaluates C++ infilling, JSON, and diffusion-language-model generation, reporting syntactic and functional correctness plus practical overhead. The guarantee concerns membership/reachability in the formal language, not application semantics."
+  },
+  {
+    "id": "suresh-et-al-2025-dingo",
+    "title": "DINGO: Constrained Inference for Diffusion LLMs",
+    "year": 2025,
+    "authors": [
+      "Tarun Suresh",
+      "Debangshu Banerjee",
+      "Shubham Ugare",
+      "Sasa Misailovic",
+      "Gagandeep Singh"
+    ],
+    "venue": "NeurIPS 2025",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "theory",
+      "system",
+      "evaluation"
+    ],
+    "url": "https://arxiv.org/abs/2505.23061",
+    "code_url": null,
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "programmatic"
+    ],
+    "allocation": [
+      "lookahead",
+      "framework_dependent"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "latency"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text and NeurIPS record. Uses dynamic programming over regex-automaton states and a diffusion model's per-position distributions to choose the highest-probability valid token block. Proposition 4.1 proves a valid-prefix property and Proposition 4.2 proves per-block optimality under the stated factorized output distribution. Evaluates symbolic math and JSON and reports runtime; the paper explicitly limits optimality in semi-autoregressive multi-block settings."
+  },
+  {
+    "id": "cardei-et-al-2025-constrained-discrete-diffusion",
+    "title": "Constrained Discrete Diffusion",
+    "year": 2025,
+    "authors": [
+      "Michael Cardei",
+      "Jacob K. Christopher",
+      "Thomas Hartvigsen",
+      "Bhavya Kailkhura",
+      "Ferdinando Fioretto"
+    ],
+    "venue": "NeurIPS 2025",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "theory",
+      "evaluation"
+    ],
+    "url": "https://arxiv.org/abs/2503.09790",
+    "code_url": null,
+    "specification": [
+      "lexical",
+      "semantic"
+    ],
+    "representation": [
+      "programmatic",
+      "solver",
+      "classifier"
+    ],
+    "allocation": [
+      "framework_dependent"
+    ],
+    "placement": [
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "not_applicable"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Projects intermediate categorical diffusion distributions toward differentiable feasible sets, with augmented-Lagrangian variants for multiple constraints. Theorem 4.1 gives a non-asymptotic bound on KL distance to a prox-regular feasible set rather than exact task-level correctness; experiments report zero observed violations for toxicity, molecular properties, and lexical instructions plus runtime overhead. Accordingly, empirical adherence is recorded as an outcome, not upgraded to semantic correctness."
+  },
+  {
+    "id": "dang-et-al-2026-tractable-proposals",
+    "title": "Mitigating Bias in Locally Constrained Decoding via Tractable Proposals",
+    "year": 2026,
+    "authors": [
+      "Meihua Dang",
+      "Linxin Song",
+      "Honghua Zhang",
+      "Jieyu Zhao",
+      "Guy Van den Broeck",
+      "Stefano Ermon"
+    ],
+    "venue": "ICML 2026",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "theory",
+      "system",
+      "evaluation"
+    ],
+    "url": "https://arxiv.org/abs/2606.01926",
+    "code_url": null,
+    "specification": [
+      "lexical",
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "regex_fsm",
+      "token_index",
+      "programmatic"
+    ],
+    "allocation": [
+      "local_masking",
+      "importance_weighting",
+      "sequential_monte_carlo"
+    ],
+    "placement": [
+      "token",
+      "sequence",
+      "multi_stage"
+    ],
+    "rejected_behavior": [
+      "mask",
+      "resample"
+    ],
+    "guarantees": [
+      "language_soundness",
+      "distribution_fidelity"
+    ],
+    "systems_measurements": [
+      "latency",
+      "device_memory",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "execution_accuracy",
+      "task_accuracy",
+      "distribution_divergence"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text. Tensorizes finite automata on GPU to build globally constrained proposals that retain only prefixes completable within a fixed horizon, then circuit-multiplies the automaton with an HMM approximation to form probabilistic proposals and potentials for SMC. The fixed-horizon construction guarantees constraint satisfaction at termination, while the SMC estimator targets the model distribution conditioned on the constraint asymptotically. Evaluates function calling, CommonGen, and Spider with accuracy, satisfaction, convergence, latency, and memory measurements."
+  },
+  {
+    "id": "hamilton-mimno-2026-lost-in-space",
+    "title": "Lost in Space: Finding the Right Tokens for Structured Output",
+    "year": 2026,
+    "authors": [
+      "Sil Hamilton",
+      "David Mimno"
+    ],
+    "venue": "GEM 2026",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "measurement",
+      "evaluation",
+      "analysis"
+    ],
+    "url": "https://aclanthology.org/2026.gem-main.18/",
+    "code_url": null,
+    "specification": [
+      "syntax"
+    ],
+    "representation": [
+      "cfg_parser"
+    ],
+    "allocation": [
+      "local_masking"
+    ],
+    "placement": [
+      "token"
+    ],
+    "rejected_behavior": [
+      "mask"
+    ],
+    "guarantees": [
+      "language_soundness"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "distribution_divergence"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text and ACL Anthology record. Uses llama.cpp's unmodified GBNF token masking to compare five semantically similar output formats across eight models and four NLP benchmarks. Finds that token choice, especially leading whitespace, changes downstream predictions and can improve performance by 5–10%. This is a measurement of grammar–tokenization interaction; it does not introduce a new enforcement algorithm."
+  },
+  {
+    "id": "yang-et-al-2026-structeval",
+    "title": "StructEval: Benchmarking LLMs' Capabilities to Generate Structural Outputs",
+    "year": 2026,
+    "authors": [
+      "Jialin Yang",
+      "Dongfu Jiang",
+      "Lipeng He",
+      "Sherman Siu",
+      "Yuxuan Zhang",
+      "Disen Liao",
+      "Zhuofeng Li",
+      "Huaye Zeng",
+      "Yiming Jia",
+      "Haozhe Wang",
+      "Benjamin Schneider",
+      "Chi Ruan",
+      "Wentao Ma",
+      "Zhiheng Lyu",
+      "Yifei Wang",
+      "Yi Lu",
+      "Quy Duc Do",
+      "Ziyan Jiang",
+      "Ping Nie",
+      "Wenhu Chen"
+    ],
+    "venue": "TMLR 2026",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "benchmark",
+      "evaluation"
+    ],
+    "url": "https://openreview.net/forum?id=buDwV7LUA7",
+    "code_url": "https://tiger-ai-lab.github.io/StructEval/",
+    "specification": [
+      "syntax",
+      "schema"
+    ],
+    "representation": [
+      "framework_dependent"
+    ],
+    "allocation": [
+      "framework_dependent"
+    ],
+    "placement": [
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "not_applicable"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "not_reported"
+    ],
+    "outcome_measurements": [
+      "format_validity",
+      "schema_coverage",
+      "task_accuracy"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text and TMLR record. Benchmarks generation and conversion for 18 renderable and non-renderable formats across 44 task types, using format-specific parsers, key validation, and rendered-output assessment. It evaluates structural fidelity of completed outputs rather than enforcing constraints during generation, so no masking behavior or language guarantee is inferred."
   }
 ]
