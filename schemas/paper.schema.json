@@ -15,7 +15,7 @@
     "authors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
     "venue": {"type": "string"},
     "publication_status": {"enum": ["peer_reviewed", "preprint", "documentation", "other"]},
-    "study_type": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "study_type": {"type": "array", "minItems": 1, "items": {"enum": ["method", "system", "theory", "analysis", "evaluation", "measurement", "benchmark", "application", "survey", "user_study", "adjacent_enforcement"]}},
     "url": {"type": "string", "format": "uri"},
     "code_url": {"type": ["string", "null"]},
     "specification": {"type": "array", "minItems": 1, "items": {"type": "string"}},

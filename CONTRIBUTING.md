@@ -4,6 +4,10 @@ Contributions are welcome, but the Atlas is evidence-coded rather than
 link-only. A pull request adding a paper must update `data/papers.json` and pass
 `python3 scripts/validate_catalog.py`.
 
+For a low-friction suggestion, open the **Add a paper** issue form. Maintainers
+may merge metadata-only discovery records, but strong synthesis is restricted
+to full-text-coded records.
+
 ## Before adding a record
 
 1. Prefer the archival version over a duplicate preprint.
@@ -38,3 +42,13 @@ coverage statistics.
 Disagreements are resolved by retaining the narrower classification until the
 primary source licenses a stronger one.
 
+## Reproduce generated views
+
+```bash
+python3 scripts/generate_views.py
+python3 scripts/generate_site.py
+git diff --check
+```
+
+Generated Markdown views are committed. The `site/` directory is a disposable
+build artifact deployed by GitHub Actions.

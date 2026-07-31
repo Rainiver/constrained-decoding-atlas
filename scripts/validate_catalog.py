@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
@@ -23,12 +24,13 @@ REQUIRED = {
 VOCAB = {
     "publication_status": {"peer_reviewed", "preprint", "documentation", "other"},
     "review_status": {"metadata_verified", "full_text_screened", "full_text_coded", "second_pass_verified"},
+    "study_type": {"method", "system", "theory", "analysis", "evaluation", "measurement", "benchmark", "application", "survey", "user_study", "adjacent_enforcement"},
     "specification": {"lexical", "syntax", "schema", "type", "semantic", "relation", "state", "policy"},
     "representation": {"regex_fsm", "cfg_parser", "pda", "trie", "token_index", "programmatic", "solver", "classifier", "membership_oracle", "provider_undisclosed", "framework_dependent"},
     "allocation": {"local_masking", "beam_search", "lookahead", "rejection_sampling", "importance_weighting", "sequential_monte_carlo", "draft_conditioning", "speculative", "retry", "deterministic_validation", "framework_dependent"},
     "placement": {"token", "field", "sequence", "action_boundary", "commit", "multi_stage"},
     "rejected_behavior": {"mask", "prune", "resample", "regenerate", "repair", "reject", "fallback", "confirm", "not_applicable", "not_reported"},
-    "guarantees": {"language_soundness", "token_reachable_coverage", "termination", "totality", "distribution_fidelity", "semantic_correctness", "state_validity", "freshness", "authorization", "external_effect_safety", "not_reported"},
+    "guarantees": {"language_soundness", "token_reachable_coverage", "termination", "totality", "distribution_fidelity", "type_soundness", "semantic_correctness", "state_validity", "freshness", "authorization", "external_effect_safety", "not_reported"},
     "systems_measurements": {"compile_time", "plan_memory", "host_memory", "device_memory", "latency", "tpot", "throughput", "batch_scaling", "cache_behavior", "end_to_end_cost", "not_reported"},
     "outcome_measurements": {"format_validity", "schema_coverage", "task_accuracy", "execution_accuracy", "distribution_divergence", "abstention", "external_state_effect", "user_outcome", "not_reported"},
 }
@@ -67,6 +69,9 @@ def main() -> int:
             if not isinstance(row.get(field), str) or not row[field].strip():
                 errors.append(f"{label}: {field} must be a non-empty string")
 
+        if isinstance(row.get("id"), str) and not re.fullmatch(r"[a-z0-9][a-z0-9-]+", row["id"]):
+            errors.append(f"{label}: id must use lowercase letters, digits, and hyphens")
+
         if not isinstance(row.get("year"), int) or not 1950 <= row["year"] <= 2100:
             errors.append(f"{label}: invalid year")
         if not isinstance(row.get("authors"), list) or not row["authors"] or not all(isinstance(x, str) and x.strip() for x in row["authors"]):
@@ -87,6 +92,8 @@ def main() -> int:
                 errors.append(f"{label}: unknown {field} labels {sorted(unknown)}")
             if len(values) != len(set(values)):
                 errors.append(f"{label}: duplicate {field} labels")
+            if "not_reported" in values and len(values) > 1:
+                errors.append(f"{label}: {field} cannot mix not_reported with substantive labels")
 
         normalized_title = " ".join(row.get("title", "").lower().split())
         for field, value, seen in (("id", row.get("id"), ids), ("title", normalized_title, titles), ("url", row.get("url"), urls)):

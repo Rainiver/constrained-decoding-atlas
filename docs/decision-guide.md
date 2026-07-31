@@ -1,6 +1,6 @@
 # Practitioner Decision Guide
 
-This guide is intentionally conservative while the Atlas is in bootstrap.
+This guide is intentionally conservative while the Atlas is in public preview.
 
 ## Start with the required property
 
@@ -33,4 +33,3 @@ For any deployment, record:
 
 The final guide will link each recommendation to coded evidence rather than
 presenting it as universal advice.
-

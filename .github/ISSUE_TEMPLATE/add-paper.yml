@@ -1,0 +1,39 @@
+name: Add a paper
+description: Suggest an in-scope work for the Atlas
+title: "[Paper]: "
+labels: ["paper-candidate"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+    validations:
+      required: true
+  - type: input
+    id: primary_url
+    attributes:
+      label: Stable primary URL
+      description: Prefer the archival venue page or arXiv abstract page.
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why it belongs
+      description: Which specification, representation, placement, guarantee, system, or evaluation question does it address?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Full-text evidence
+      description: Optional section/page pointers for proposed classifications. Do not paste the abstract.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the current catalog for duplicates.
+          required: true
+        - label: I understand that metadata-only records are not used in strong synthesis.
+          required: true

@@ -1,0 +1,24 @@
+name: Correct a record
+description: Report inaccurate metadata or evidence coding
+title: "[Correction]: "
+labels: ["correction"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record ID or title
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is inaccurate?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Primary evidence
+      description: Link the paper and provide section/page pointers where possible.
+    validations:
+      required: true

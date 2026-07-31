@@ -1,0 +1,8 @@
+date_utc	source	query_family	purpose	notes
+2026-07-31	arXiv	"constrained decoding" language model	core discovery	Title and abstract screening; archival versions preferred when found.
+2026-07-31	arXiv	"grammar constrained" OR "grammar-guided" generation	formal-language methods	Broad recall across parser, automata, and token-alignment methods.
+2026-07-31	arXiv	"structured generation" OR "structured output" language model	systems and evaluation	Application-only uses excluded unless enforcement is load-bearing.
+2026-07-31	arXiv	"distribution fidelity" constrained decoding	probabilistic methods	Included conditioning, SMC, rejection, and bias-correction work.
+2026-07-31	ACL Anthology	constrained decoding; grammar; structured generation	archival metadata	Primary venue pages used where available.
+2026-07-31	PMLR	constrained decoding; structured generation	archival metadata	Primary venue pages used where available.
+2026-07-31	GitHub community lists	constrained decoding	candidate recall only	Lists never used as classification evidence.

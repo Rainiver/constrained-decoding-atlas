@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If this Atlas supports your work, please cite the repository release."
+title: "Constrained Decoding Atlas"
+type: dataset
+authors:
+  - family-names: "Rainiver"
+repository-code: "https://github.com/Rainiver/constrained-decoding-atlas"
+url: "https://rainiver.github.io/constrained-decoding-atlas/"
+license: "CC-BY-4.0"
+version: "0.1.0"
+date-released: 2026-07-31
+keywords:
+  - constrained decoding
+  - structured generation
+  - structured output
+  - language models
+  - runtime enforcement
+abstract: >-
+  An evidence-coded, machine-readable map of constrained generation methods,
+  guarantees, systems costs, evaluation practices, and enforcement placement.

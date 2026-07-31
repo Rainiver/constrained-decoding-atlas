@@ -31,6 +31,12 @@ must not be assumed to provide sequence-level conditioning.
 The generated result is correct for the task, not merely well formed.
 Structural validity is not evidence of semantic correctness.
 
+## Type soundness
+
+Every completed program or expression satisfies a stated type system under its
+assumptions. This is stronger than grammar membership but does not by itself
+imply functional correctness.
+
 ## State validity and freshness
 
 State validity means the action satisfies a state predicate at the checked
@@ -57,6 +63,5 @@ Each property should eventually be tagged as one of:
 - `claimed_only`;
 - `not_reported`.
 
-The current bootstrap catalog stores the property names; evidence-level coding
-is scheduled before taxonomy version 1.0.
-
+The current public-preview catalog stores the property names; evidence-level
+coding is scheduled before taxonomy version 1.0.

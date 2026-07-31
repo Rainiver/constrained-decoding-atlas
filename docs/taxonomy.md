@@ -49,7 +49,7 @@ These labels describe mechanism behavior, not whether it is desirable.
 ## 6. Guarantees
 
 `language_soundness`, `token_reachable_coverage`, `termination`, `totality`,
-`distribution_fidelity`, `semantic_correctness`, `state_validity`,
+`distribution_fidelity`, `type_soundness`, `semantic_correctness`, `state_validity`,
 `freshness`, `authorization`, `external_effect_safety`, `not_reported`.
 
 See [guarantees.md](guarantees.md). A property is coded as a guarantee only
@@ -74,4 +74,3 @@ Quality and outcomes:
 Do not infer a guarantee from an implementation family. For example, using a
 CFG parser may support language soundness, but the record receives that label
 only if the complete tokenizer/parser integration and assumptions are stated.
-

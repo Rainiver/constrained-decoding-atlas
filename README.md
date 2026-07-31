@@ -1,11 +1,17 @@
 # Constrained Decoding Atlas
 
+[![Catalog](https://img.shields.io/badge/catalog-49%20papers-58e1d5)](https://rainiver.github.io/constrained-decoding-atlas/)
+[![Validate](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/validate.yml/badge.svg)](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/validate.yml)
+[![Pages](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/pages.yml/badge.svg)](https://rainiver.github.io/constrained-decoding-atlas/)
+[![License: CC BY 4.0](https://img.shields.io/badge/data%20%26%20docs-CC%20BY%204.0-ae8cff)](DATA_LICENSE.md)
+
 > An evidence-coded map of constrained generation, structured output, and
 > runtime enforcement for language models.
 
-**Status:** bootstrap release. The catalog is intentionally small while the
-screening protocol and taxonomy are being validated; it is not yet a
-comprehensive list.
+**Status:** public preview `v0.1`. The Atlas currently indexes 49 heterogeneous
+works. Coverage is intentionally transparent rather than presented as a
+complete or systematic census; 40 discovery records still await full-text
+coding.
 
 ## Why another repository?
 
@@ -24,9 +30,13 @@ Missing measurements are recorded as `not_reported`, never as zero.
 
 ## Browse the Atlas
 
+- [Interactive website](https://rainiver.github.io/constrained-decoding-atlas/)
 - [Taxonomy](docs/taxonomy.md)
 - [Guarantees: what the labels mean](docs/guarantees.md)
 - [Practitioner decision guide](docs/decision-guide.md)
+- [Generated catalog](docs/catalog.md)
+- [Evidence coverage snapshot](docs/coverage.md)
+- [Corpus and coding methodology](docs/methodology.md)
 - [Machine-readable paper catalog](data/papers.json)
 - [Contribution guide](CONTRIBUTING.md)
 - [Roadmap](ROADMAP.md)
@@ -68,9 +78,11 @@ The same check runs on every pull request.
   bibliographic facts or third-party material; this repository does not
   redistribute paper text.
 
-## Near-term target
+## Current release target
 
-The first public milestone is 30 heterogeneous, full-text-coded papers across
-formal-language decoding, probabilistic constrained inference, serving
-systems, structured-output benchmarks, and runtime enforcement. Static views
-and coverage dashboards will be generated only after the vocabulary is stable.
+Release `v0.1` contains 49 heterogeneous records across formal-language
+decoding, probabilistic constrained inference, serving systems,
+structured-output benchmarks, and runtime enforcement. Evidence depth remains
+visible per record: metadata-only entries are discoverable but excluded from
+strong synthesis until full-text coding is complete. See the
+[changelog](CHANGELOG.md) for snapshot details.
