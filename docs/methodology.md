@@ -80,7 +80,8 @@ python3 scripts/generate_site.py
 ## Known limitations
 
 - The discovery process is not yet exhaustive.
-- Most records are metadata-verified rather than fully coded.
+- Nearly half of the current records remain metadata-verified rather than
+  fully coded.
 - Guarantee evidence strength is not yet stored per property.
 - Provider features and software versions change faster than paper metadata;
   an independently dated capability table is deferred until provenance rules

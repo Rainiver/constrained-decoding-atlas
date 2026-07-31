@@ -27,7 +27,9 @@ to full-text-coded records.
   stabilized.
 
 Only `full_text_coded` and `second_pass_verified` records should be used in
-coverage statistics.
+evidence synthesis. The README inventory may count provisional discovery
+labels, but must identify them as catalog annotations rather than field-wide
+evidence.
 
 ## Pull request checklist
 

@@ -25,18 +25,21 @@ def main() -> None:
     shutil.copytree(WEB, OUT)
 
     reviewed = {"full_text_screened", "full_text_coded", "second_pass_verified"}
+    fully_coded = {"full_text_coded", "second_pass_verified"}
+    synthesis_rows = [row for row in rows if row["review_status"] in fully_coded]
     stats = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "records": len(rows),
         "peer_reviewed": sum(row["publication_status"] == "peer_reviewed" for row in rows),
         "full_text_reviewed": sum(row["review_status"] in reviewed for row in rows),
+        "fully_coded": len(synthesis_rows),
         "with_code": sum(bool(row["code_url"]) for row in rows),
         "years": dict(sorted(Counter(str(row["year"]) for row in rows).items())),
-        "specification": Counter(label for row in rows for label in row["specification"]),
-        "placement": Counter(label for row in rows for label in row["placement"]),
-        "guarantees": Counter(label for row in rows for label in row["guarantees"]),
-        "systems_measurements": Counter(label for row in rows for label in row["systems_measurements"]),
-        "outcome_measurements": Counter(label for row in rows for label in row["outcome_measurements"]),
+        "specification": Counter(label for row in synthesis_rows for label in row["specification"]),
+        "placement": Counter(label for row in synthesis_rows for label in row["placement"]),
+        "guarantees": Counter(label for row in synthesis_rows for label in row["guarantees"]),
+        "systems_measurements": Counter(label for row in synthesis_rows for label in row["systems_measurements"]),
+        "outcome_measurements": Counter(label for row in synthesis_rows for label in row["outcome_measurements"]),
     }
 
     (OUT / "catalog.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n")

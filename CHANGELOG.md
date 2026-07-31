@@ -5,6 +5,15 @@ versioning for the data contract: breaking schema or vocabulary changes incremen
 the major version; new compatible records or views increment the minor version;
 metadata corrections increment the patch version.
 
+## Unreleased
+
+- simplified the README for direct browsing and removed per-row evidence
+  symbols while retaining review status in the data and filterable site;
+- removed redundant generated catalog/coverage files and internal planning
+  documents superseded by the README and public release history;
+- restricted website synthesis charts to fully coded records;
+- expanded the engine list and recorded a formal coverage-gap audit.
+
 ## [0.2.0] — 2026-07-31
 
 README-first release:

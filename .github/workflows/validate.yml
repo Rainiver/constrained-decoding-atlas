@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
       - run: python3 scripts/validate_catalog.py
       - run: python3 scripts/generate_views.py
-      - run: git diff --exit-code -- docs/catalog.md docs/coverage.md README.md
+      - run: git diff --exit-code -- README.md
       - run: python3 scripts/generate_site.py
       - run: python3 scripts/check_site.py
       - run: node --check web/app.js

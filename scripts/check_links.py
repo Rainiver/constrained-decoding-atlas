@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Check catalog paper and code links with conservative HTTP semantics."""
+"""Check catalog and README links with conservative HTTP semantics."""
 
 from __future__ import annotations
 
 import argparse
 import json
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -13,6 +14,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data" / "papers.json"
+README = ROOT / "README.md"
 REACHABLE_HTTP_ERRORS = {401, 403, 405, 429}
 
 
@@ -36,7 +38,9 @@ def main() -> int:
     args = parser.parse_args()
 
     rows = json.loads(CATALOG.read_text())
-    urls = sorted({row[field] for row in rows for field in ("url", "code_url") if row.get(field)})
+    urls = {row[field] for row in rows for field in ("url", "code_url") if row.get(field)}
+    urls.update(re.findall(r"https?://[^)\s]+", README.read_text()))
+    urls = sorted(urls)
     failures: list[tuple[str, str]] = []
     with ThreadPoolExecutor(max_workers=8) as pool:
         futures = {pool.submit(probe, url, args.timeout): url for url in urls}
