@@ -17,8 +17,15 @@ metadata corrections increment the patch version.
   foundations, token-format effects, context-sensitive quotienting, logical
   constraints, lookahead and speculative search, distribution-preserving
   proposals, three diffusion-LLM methods, and the COLLIE and StructEval
-  benchmarks; the catalog now contains 62 records, 39 checked against full
-  text.
+  benchmarks;
+- completed the full-text pass for all 62 catalog records, using author or
+  arXiv versions where venue downloads were unavailable, and recorded the
+  exact source substitution in the search log;
+- corrected the evidence-coded snapshot after the full pass: 47/62 syntax,
+  48/62 token placement, 5/62 runtime-environment state, 1/62 policy or
+  authorization, and 1/62 in-place repair; and
+- clarified the boundary between runtime environment state and alternatives
+  conditioned only on a fixed knowledge base or current input.
 
 ## [0.2.0] — 2026-07-31
 

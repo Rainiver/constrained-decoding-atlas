@@ -62,13 +62,17 @@
     "url": "https://aclanthology.org/2023.emnlp-main.674/",
     "code_url": null,
     "specification": [
-      "syntax"
+      "syntax",
+      "schema",
+      "semantic",
+      "relation"
     ],
     "representation": [
       "cfg_parser"
     ],
     "allocation": [
-      "local_masking"
+      "local_masking",
+      "beam_search"
     ],
     "placement": [
       "token"
@@ -83,11 +87,11 @@
       "not_reported"
     ],
     "outcome_measurements": [
-      "format_validity",
-      "task_accuracy"
+      "task_accuracy",
+      "format_validity"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; representation, guarantee assumptions, and measurements require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Argues grammar-constrained decoding is a general framework for structured NLP rather than a parsing or code trick, and introduces input-dependent grammars whose terminal alternatives are drawn per input - for closed information extraction the entity and relation alternatives come from the knowledge base. That is runtime-valued support in the same shape as an entity enum, but the source is static per input rather than mutable world state, so this record is coded relation/schema and not state. Evaluated on cIE, entity disambiguation and constituency parsing without finetuning."
   },
   {
     "id": "geng-et-al-2025-jsonschemabench",
@@ -169,22 +173,25 @@
       "evaluation"
     ],
     "url": "https://openreview.net/forum?id=3BmPSFAdq3",
-    "code_url": null,
+    "code_url": "https://github.com/genlm/awrs-colm-2025",
     "specification": [
       "lexical",
       "syntax",
       "semantic"
     ],
     "representation": [
-      "programmatic"
+      "programmatic",
+      "membership_oracle"
     ],
     "allocation": [
       "rejection_sampling",
-      "importance_weighting"
+      "importance_weighting",
+      "sequential_monte_carlo"
     ],
     "placement": [
       "token",
-      "sequence"
+      "sequence",
+      "multi_stage"
     ],
     "rejected_behavior": [
       "resample"
@@ -197,10 +204,12 @@
     ],
     "outcome_measurements": [
       "task_accuracy",
+      "execution_accuracy",
+      "format_validity",
       "distribution_divergence"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; theorem assumptions and domain-specific measurements require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text of arXiv:2504.05410v2, published at COLM 2025. Introduces adaptive rejection sampling that samples exactly from the same local constrained distribution as exhaustive token masking while evaluating far fewer candidates, then derives unbiased local normalizer estimates for properly weighted SMC proposals. Evaluated on text-to-SQL, JSON Schema, PDDL goal inference, molecular synthesis, and context-sensitive pattern matching; reports task accuracy and complete-sequence runtime, with more than 50x end-to-end speedup over token masking in the feasible pattern-matching comparison. The catalog URL remains the venue page; code and data are public in genlm/awrs-colm-2025."
   },
   {
     "id": "schall-demelo-2025-hidden-cost",
@@ -235,17 +244,18 @@
       "mask"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
       "not_reported"
     ],
     "outcome_measurements": [
+      "task_accuracy",
       "format_validity",
-      "task_accuracy"
+      "distribution_divergence"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; model/task strata and log-probability analysis require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Study across 11 models finding that the effect of constrained decoding splits by model type, not by task alone: base models often improve under structural constraints while instruction-tuned models degrade on generation tasks yet stay stable on classification. The log-probability analysis gives the mechanism - constraints push the model off its preferred natural-language continuations onto lower-confidence structured ones. Complements Let Me Speak Freely by explaining why the same intervention helps some models and hurts others."
   },
   {
     "id": "nguyen-et-al-2026-thinking",
@@ -396,8 +406,8 @@
     "outcome_measurements": [
       "user_outcome"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; user study reports 134 use cases from 51 industry professionals."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text of the arXiv version (2404.07362) of the CHI paper. A survey of 51 industry practitioners, mostly software engineers, on what constraints they actually want on LLM output and why. The demand is not only parseability: respondents ask for guarantees that output will invariably conform, and the constraint types they name extend past schema into content and policy expectations. Useful as the requirements-side counterpart to the mechanism papers, and the reason this catalog keeps a policy axis at all."
   },
   {
     "id": "dong-et-al-2024-xgrammar",
@@ -482,7 +492,9 @@
       "schema"
     ],
     "representation": [
-      "cfg_parser"
+      "regex_fsm",
+      "cfg_parser",
+      "token_index"
     ],
     "allocation": [
       "local_masking"
@@ -494,18 +506,19 @@
       "mask"
     ],
     "guarantees": [
-      "language_soundness"
+      "language_soundness",
+      "token_reachable_coverage"
     ],
     "systems_measurements": [
+      "compile_time",
       "latency"
     ],
     "outcome_measurements": [
       "format_validity",
-      "execution_accuracy",
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; soundness assumptions, grammar coverage, and tokenizer integration require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Precomputes a DFA mask store offline from the grammar's lexical DFA so the online step is a table lookup plus a few tensor unions. Theorem 1 shows the combined mask overapproximates the viable token set, giving soundness - no syntactically valid token is ever removed - with completeness only under specific conditions (LR parser with sufficient lookahead), so the approximation is explicitly one-sided. Eliminates all JSON syntax errors (100% schema validation with Gemma2-2B-it) and removes 96.07% of Python and Go syntax errors."
   },
   {
     "id": "ugare-et-al-2024-itergen",
@@ -532,10 +545,11 @@
       "relation"
     ],
     "representation": [
+      "cfg_parser",
       "programmatic"
     ],
     "allocation": [
-      "lookahead",
+      "local_masking",
       "retry"
     ],
     "placement": [
@@ -550,16 +564,14 @@
       "not_reported"
     ],
     "systems_measurements": [
-      "latency",
-      "end_to_end_cost"
+      "cache_behavior"
     ],
     "outcome_measurements": [
-      "format_validity",
       "task_accuracy",
-      "execution_accuracy"
+      "user_outcome"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract only. Maintains a symbol-to-position map over the grammar so generation can move backward as well as forward, regenerating a grammar symbol in place using cached key-value state. Reported on privacy leakage and on SQL / Vega-Lite accuracy. Full-text coding still needed for guarantees and systems measurements."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). The only record in the catalog whose primary mechanism is backward movement: a symbol-to-position map lets generation return to a chosen grammar symbol and regenerate just that span, reusing cached key-value state, instead of naively rewinding a fixed number of tokens. Enforcement therefore happens per grammar symbol rather than per token. No formal guarantee is claimed. Reports 18.5% mean SQL accuracy improvement and privacy leakage falling from 51.4% to 0%."
   },
   {
     "id": "wang-et-al-2024-fantastic",
@@ -740,33 +752,34 @@
     "code_url": null,
     "specification": [
       "syntax",
-      "schema"
+      "schema",
+      "relation"
     ],
     "representation": [
-      "programmatic"
+      "cfg_parser"
     ],
     "allocation": [
       "draft_conditioning",
-      "retry"
+      "local_masking"
     ],
     "placement": [
       "multi_stage"
     ],
     "rejected_behavior": [
-      "regenerate"
+      "mask"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
-      "end_to_end_cost"
+      "not_reported"
     ],
     "outcome_measurements": [
-      "format_validity",
-      "task_accuracy"
+      "task_accuracy",
+      "format_validity"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; black-box sketch protocol and final guarantee boundary require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Targets the case where constrained decoding is impossible because the strong model is a black box with no logit access: the black-box output is taken as a sketch and a locally hosted auxiliary model regenerates it under grammar constraints. Enforcement therefore lives entirely in the small local model while quality comes from the large remote one. Reaches 100% valid parse trees and tags on Penn Treebank where the unconstrained baseline is near zero, evaluated on closed information extraction and constituency parsing."
   },
   {
     "id": "park-et-al-2024-grammar-aligned",
@@ -851,14 +864,13 @@
       "schema"
     ],
     "representation": [
-      "regex_fsm",
-      "programmatic"
+      "regex_fsm"
     ],
     "allocation": [
-      "local_masking",
-      "speculative"
+      "local_masking"
     ],
     "placement": [
+      "token",
       "multi_stage"
     ],
     "rejected_behavior": [
@@ -868,18 +880,16 @@
       "language_soundness"
     ],
     "systems_measurements": [
-      "latency",
       "throughput",
-      "batch_scaling",
       "cache_behavior",
-      "end_to_end_cost"
+      "latency"
     ],
     "outcome_measurements": [
-      "format_validity",
-      "task_accuracy"
+      "task_accuracy",
+      "format_validity"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; structured-generation backend is one component of a broader language-model programming and serving system."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). A runtime rather than a constraint method: the relevant piece here is the compressed finite state machine, which lets multiple tokens be emitted at once when the automaton admits only one continuation, so constrained segments cost less than one forward pass per token. Paired with RadixAttention for automatic KV reuse across calls sharing a prefix. Up to 6.4x throughput over contemporaneous engines. Included because it is where constraint enforcement meets scheduling and cache policy."
   },
   {
     "id": "zhang-et-al-2023-tractable-control",
@@ -901,33 +911,33 @@
     "url": "https://arxiv.org/abs/2304.07438",
     "code_url": null,
     "specification": [
-      "lexical",
-      "semantic"
+      "lexical"
     ],
     "representation": [
-      "programmatic"
+      "solver"
     ],
     "allocation": [
       "lookahead"
     ],
     "placement": [
-      "sequence"
+      "token"
     ],
     "rejected_behavior": [
-      "resample"
+      "mask"
     ],
     "guarantees": [
+      "language_soundness",
       "distribution_fidelity"
     ],
     "systems_measurements": [
-      "latency"
+      "not_reported"
     ],
     "outcome_measurements": [
-      "distribution_divergence",
-      "task_accuracy"
+      "task_accuracy",
+      "distribution_divergence"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; tractability class, exact target distribution, and complexity bounds require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Sampling from Pr(text | constraint) is intractable even for simple lexical constraints, so GeLaTo distils a hidden Markov model that can compute Pr(constraint | prefix, next token) exactly and multiplies it into the LM distribution at each step. The constraint therefore acts as an exact future-satisfiability lookahead rather than a mask over the current token, and satisfaction is 100% by construction. The HMM is trained by minimising KL to the base LM, so distribution fidelity is an explicit objective rather than an afterthought. State of the art on CommonGen."
   },
   {
     "id": "beurer-kellner-et-al-2024-domino",
@@ -1051,12 +1061,16 @@
     "code_url": null,
     "specification": [
       "syntax",
+      "schema",
+      "type",
       "semantic",
-      "type"
+      "relation"
     ],
     "representation": [
-      "programmatic",
-      "membership_oracle"
+      "membership_oracle",
+      "cfg_parser",
+      "regex_fsm",
+      "programmatic"
     ],
     "allocation": [
       "local_masking"
@@ -1065,20 +1079,23 @@
       "token"
     ],
     "rejected_behavior": [
-      "prune"
+      "mask"
     ],
     "guarantees": [
-      "language_soundness"
+      "language_soundness",
+      "semantic_correctness",
+      "type_soundness"
     ],
     "systems_measurements": [
-      "not_reported"
+      "latency"
     ],
     "outcome_measurements": [
       "execution_accuracy",
-      "task_accuracy"
+      "task_accuracy",
+      "format_validity"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Metadata and abstract checked; completion engine, semantic completion rules, and guarantee assumptions require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Introduces the completion engine: an oracle that, given a partial program, returns a regular expression over the tokens that may follow, with three exhaustiveness axioms (Sec 3.1). Engines are two-layered - a context-free layer for syntax and a context-sensitive layer for scoping, typing and schema facts, e.g. column names must come from the schema even behind table aliases (Table 1). Brzozowski derivatives decide prefix membership, and the algorithm absorbs the mismatch between program tokens and LLM subword tokens so engines never see the tokenizer (Sec 3.3). Completed programs satisfy all engine constraints by construction; CSD adds about 8% sampling overhead."
   },
   {
     "id": "lu-et-al-2021-neurologic",
@@ -1101,10 +1118,10 @@
     "url": "https://aclanthology.org/2021.naacl-main.339/",
     "code_url": null,
     "specification": [
-      "lexical",
-      "semantic"
+      "lexical"
     ],
     "representation": [
+      "solver",
       "programmatic"
     ],
     "allocation": [
@@ -1112,7 +1129,6 @@
       "lookahead"
     ],
     "placement": [
-      "token",
       "sequence"
     ],
     "rejected_behavior": [
@@ -1122,13 +1138,13 @@
       "not_reported"
     ],
     "systems_measurements": [
-      "not_reported"
+      "end_to_end_cost"
     ],
     "outcome_measurements": [
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL metadata and abstract checked; predicate satisfaction scoring and search guarantees require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Generalises lexical constraints from phrase lists to predicate logic in conjunctive normal form, so alternatives such as beef-or-steak and inflectional variants are one clause rather than separate constraints. Search is beam search augmented with clause-satisfaction bookkeeping and lookahead, at the same asymptotic cost. Satisfaction is enforced by steering the search, not by construction - the paper does not claim an unconditional guarantee - so guarantees are coded not_reported rather than sound. Unsupervised models with this decoder beat larger supervised models with ordinary decoding."
   },
   {
     "id": "chen-et-al-2025-pre3",
@@ -1959,34 +1975,34 @@
     "url": "https://arxiv.org/abs/2211.15458",
     "code_url": null,
     "specification": [
-      "lexical",
-      "syntax",
-      "semantic"
+      "lexical"
     ],
     "representation": [
       "regex_fsm"
     ],
     "allocation": [
-      "deterministic_validation"
+      "beam_search",
+      "local_masking"
     ],
     "placement": [
       "sequence"
     ],
     "rejected_behavior": [
-      "reject"
+      "prune"
     ],
     "guarantees": [
-      "language_soundness",
-      "token_reachable_coverage"
+      "language_soundness"
     ],
     "systems_measurements": [
+      "throughput",
       "latency"
     ],
     "outcome_measurements": [
-      "task_accuracy"
+      "task_accuracy",
+      "schema_coverage"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; this is adjacent validation/search rather than ordinary online token masking."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Not a generation method but a validation system: regular expressions define the query set, are compiled to automata, and the LLM is searched over that automaton to test memorisation, bias, toxicity and knowledge. Results are guaranteed drawn from the full expected string set rather than from ad-hoc prompt samples. Surfaces the encoding-redundancy problem directly - roughly 3% of unprompted GPT-2 samples are not in canonical token encoding, so a pattern can be missed without automaton-level handling. Reports up to 15x system and 2.5x data efficiency over ad-hoc queries."
   },
   {
     "id": "lew-et-al-2023-smc-steering",
@@ -2008,17 +2024,19 @@
     "url": "https://arxiv.org/abs/2306.03081",
     "code_url": null,
     "specification": [
-      "semantic",
-      "policy"
+      "syntax",
+      "semantic"
     ],
     "representation": [
-      "programmatic"
+      "programmatic",
+      "trie"
     ],
     "allocation": [
       "sequential_monte_carlo",
       "importance_weighting"
     ],
     "placement": [
+      "token",
       "sequence",
       "multi_stage"
     ],
@@ -2029,14 +2047,14 @@
       "distribution_fidelity"
     ],
     "systems_measurements": [
+      "cache_behavior",
       "end_to_end_cost"
     ],
     "outcome_measurements": [
-      "distribution_divergence",
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; probabilistic-program target and SMC approximation properties require full-text coding."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Recasts constrained generation as posterior inference in a discrete probabilistic sequence model and replaces decoding with sequential Monte Carlo, at a cost comparable to beam search. Ships LLaMPPL so tasks - infilling, syntactic constraints, prompt intersection - are written as probabilistic programs. Systems contribution is a shared cached transformer holding a trie of token-in-context logits and layerwise KV, avoiding duplicated computation across particles. Earlier coding listed a policy specification; the paper describes syntactic and semantic constraints, so policy was removed on full-text reading."
   },
   {
     "id": "alkhouli-et-al-2025-confetti",
@@ -2065,7 +2083,7 @@
       "state"
     ],
     "representation": [
-      "framework_dependent"
+      "provider_undisclosed"
     ],
     "allocation": [
       "framework_dependent"
@@ -2083,12 +2101,11 @@
       "not_reported"
     ],
     "outcome_measurements": [
-      "execution_accuracy",
       "task_accuracy",
-      "user_outcome"
+      "schema_coverage"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "arXiv metadata and abstract checked; included as an adjacent function-calling evaluation resource rather than a decoding algorithm."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). A benchmark, not a method: 109 human-simulated conversations, 313 user turns and 86 APIs, with off-policy turn-level evaluation of function calling plus dialog-act annotations for response quality. Coded as state because the conversations deliberately target follow-ups, goal correction and goal switching, so the callable target changes across turns rather than being fixed by the schema. Best model reaches 40.01% AST soft accuracy, which bounds how much of the agent function-calling problem is solved before any constraint mechanism is applied."
   },
   {
     "id": "hokamp-liu-2017-grid-beam-search",
@@ -2110,29 +2127,28 @@
       "lexical"
     ],
     "representation": [
-      "framework_dependent"
+      "programmatic"
     ],
     "allocation": [
       "beam_search"
     ],
     "placement": [
-      "token",
-      "multi_stage"
+      "sequence"
     ],
     "rejected_behavior": [
       "prune"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
-      "latency"
+      "end_to_end_cost"
     ],
     "outcome_measurements": [
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL Anthology metadata and abstract checked; introduces grid beam search for required lexical phrases, with full algorithmic guarantee coding still pending."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). The origin of lexically constrained decoding: beam search is reorganised into a grid indexed by timestep and by number of constraints already covered, so a hypothesis is only closed once every required phrase appears. Model-agnostic and requires no retraining. Constraint coverage is structural rather than a token mask, and the cost is linear in the number of constraints - the complexity that Post and Vilar later attack. Evaluated on interactive-predictive translation and NMT domain adaptation."
   },
   {
     "id": "post-vilar-2018-dynamic-beam-allocation",
@@ -2155,30 +2171,28 @@
       "lexical"
     ],
     "representation": [
-      "framework_dependent"
+      "programmatic"
     ],
     "allocation": [
       "beam_search"
     ],
     "placement": [
-      "token",
-      "multi_stage"
+      "sequence"
     ],
     "rejected_behavior": [
       "prune"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
-      "latency",
-      "throughput"
+      "end_to_end_cost"
     ],
     "outcome_measurements": [
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL Anthology metadata and abstract checked; reports dynamic beam allocation with complexity constant in the number of lexical constraints."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Replaces grid beam search's per-constraint beams with dynamic allocation of slots inside one fixed-size beam, giving O(1) complexity in the number of constraints against linear for grid beam search and exponential for constrained beam search. Shipped in Sockeye, which is why this is the version most downstream work inherits. Also uses the setup to probe the weak relationship between model score and BLEU."
   },
   {
     "id": "hu-et-al-2019-vectorized-dba",
@@ -2206,30 +2220,30 @@
       "lexical"
     ],
     "representation": [
-      "framework_dependent"
+      "programmatic",
+      "trie"
     ],
     "allocation": [
       "beam_search"
     ],
     "placement": [
-      "token",
-      "multi_stage"
+      "sequence"
     ],
     "rejected_behavior": [
-      "prune"
+      "prune",
+      "mask"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
-      "throughput",
-      "batch_scaling"
+      "throughput"
     ],
     "outcome_measurements": [
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL Anthology metadata and abstract checked; vectorized dynamic beam allocation is evaluated for batching and positive lexical constraints."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Vectorises dynamic beam allocation and tracks only the active subset of constraint-trie nodes per timestep, giving a fivefold decoding speedup and in some cases better constraint placement by BLEU. Adds negative constraints - prohibited tokens are kept out of the beam - so this record is one of the few in the catalog where the mechanism is exclusion rather than inclusion. Motivated by large-scale monolingual rewriting where the earlier algorithms were too slow to use."
   },
   {
     "id": "deutsch-et-al-2019-constrained-sequential-inference",
@@ -2251,35 +2265,32 @@
     "code_url": null,
     "specification": [
       "syntax",
-      "semantic"
+      "relation"
     ],
     "representation": [
-      "regex_fsm",
-      "pda"
+      "regex_fsm"
     ],
     "allocation": [
-      "beam_search",
-      "local_masking"
+      "local_masking",
+      "beam_search"
     ],
     "placement": [
       "token"
     ],
     "rejected_behavior": [
-      "mask",
-      "prune"
+      "mask"
     ],
     "guarantees": [
       "language_soundness"
     ],
     "systems_measurements": [
-      "latency"
+      "end_to_end_cost"
     ],
     "outcome_measurements": [
-      "format_validity",
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL Anthology metadata, abstract, and algorithm excerpt checked; automata guide sequential inference and an active-set method is evaluated."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Pre-LLM but structurally the same idea as modern masking: constraints are compiled to an automaton traversed in lockstep with left-to-right inference, and transitions the automaton rejects are simply not taken. Where constraints are more naturally several automata, an active-set method avoids materialising their full intersection and gives a 5.2x speedup. Worth reading as the origin of the intersect-automata-with-decoding pattern that grammar engines rediscovered."
   },
   {
     "id": "shin-et-al-2021-constrained-language-models",
@@ -2311,9 +2322,10 @@
       "semantic"
     ],
     "representation": [
-      "framework_dependent"
+      "cfg_parser"
     ],
     "allocation": [
+      "beam_search",
       "local_masking"
     ],
     "placement": [
@@ -2321,20 +2333,19 @@
       "multi_stage"
     ],
     "rejected_behavior": [
-      "mask"
+      "prune"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
       "not_reported"
     ],
     "outcome_measurements": [
-      "format_validity",
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL Anthology metadata and abstract checked; controlled-sublanguage generation is mapped to target meaning representations for few-shot parsing."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Few-shot semantic parsing by having the LM paraphrase the input into a controlled English-like sublanguage defined by a synchronous context-free grammar, which then maps deterministically to the meaning representation. Constrained decoding against that SCFG guarantees a well-formed output, and the English-like surface form is what makes a general LM usable few-shot. Uses length-normalised beam search. The design point is that the grammar is written by the domain developer, not derived from the target formalism."
   },
   {
     "id": "beurer-kellner-et-al-2023-lmql",
@@ -2360,11 +2371,13 @@
       "semantic"
     ],
     "representation": [
-      "programmatic"
+      "programmatic",
+      "regex_fsm"
     ],
     "allocation": [
       "local_masking",
-      "framework_dependent"
+      "lookahead",
+      "beam_search"
     ],
     "placement": [
       "token",
@@ -2375,16 +2388,17 @@
       "prune"
     ],
     "guarantees": [
-      "not_reported"
+      "language_soundness"
     ],
     "systems_measurements": [
-      "end_to_end_cost"
+      "end_to_end_cost",
+      "latency"
     ],
     "outcome_measurements": [
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Official ETH publication metadata and abstract checked; LMQL compiles constraints and control flow into an inference procedure."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text of the arXiv version (2212.06094) of the PLDI paper. Treats prompting as programming: constraints are written in a query language and compiled into model-specific token masks by a formal eager partial-evaluation semantics over final and follow abstractions, so a high-level constraint becomes a mask automatically. The pitch is cost as much as correctness - pruning the search space cuts inference cost and latency by 26-85%, which matters most against pay-per-token APIs. One of the earliest works to treat constraint specification as a language-design problem."
   },
   {
     "id": "agrawal-et-al-2023-monitor-guided-decoding",
@@ -2409,34 +2423,36 @@
     "specification": [
       "type",
       "semantic",
-      "state"
+      "state",
+      "relation"
     ],
     "representation": [
-      "programmatic",
-      "membership_oracle"
+      "membership_oracle",
+      "programmatic"
     ],
     "allocation": [
       "local_masking"
     ],
     "placement": [
-      "token"
+      "token",
+      "field"
     ],
     "rejected_behavior": [
       "mask"
     ],
     "guarantees": [
-      "not_reported"
+      "type_soundness",
+      "semantic_correctness"
     ],
     "systems_measurements": [
-      "latency"
+      "not_reported"
     ],
     "outcome_measurements": [
-      "format_validity",
       "execution_accuracy",
       "task_accuracy"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Official NeurIPS metadata and abstract checked; a static-analysis monitor constrains identifier generation using repository context."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Runs a Language Server over the repository and consults it mid-generation, so the legal identifier set at a dereference point comes from static analysis of code the model never saw in training. Enforcement fires only at specific syntactic positions - a monitor triggers on the dereference, not on every token. Coded state because the admissible set is derived from the surrounding repository rather than the schema. SantaCoder-1.1B with monitor guidance beats substantially larger unguided models on compilation rate and ground-truth agreement."
   },
   {
     "id": "muendler-et-al-2025-type-constrained-code",
@@ -2461,11 +2477,13 @@
     "code_url": "https://github.com/eth-sri/type-constrained-code-generation",
     "specification": [
       "type",
+      "syntax",
       "semantic"
     ],
     "representation": [
-      "programmatic",
-      "solver"
+      "regex_fsm",
+      "solver",
+      "membership_oracle"
     ],
     "allocation": [
       "local_masking",
@@ -2475,21 +2493,23 @@
       "token"
     ],
     "rejected_behavior": [
-      "mask"
+      "mask",
+      "prune"
     ],
     "guarantees": [
-      "type_soundness"
+      "type_soundness",
+      "language_soundness"
     ],
     "systems_measurements": [
-      "latency"
+      "not_reported"
     ],
     "outcome_measurements": [
-      "format_validity",
       "execution_accuracy",
-      "task_accuracy"
+      "task_accuracy",
+      "format_validity"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "Official PLDI metadata and abstract checked; the work formalizes prefix automata and inhabitable-type search for well-typed generation."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text of the arXiv version (2504.09246) of the PLDI 2025 paper. Makes the point that syntax is the wrong target: on average 94% of compilation errors in generated TypeScript come from type checking and only about 6% from syntax, so grammar-only constraints address the small share. Introduces prefix automata plus a search over inhabitable types to enforce well-typedness during decoding, a sound approach rather than a heuristic. Cuts compilation errors by more than half and raises functional correctness."
   },
   {
     "id": "xefteri-et-al-2025-syntactic-posterior",
@@ -2521,6 +2541,8 @@
       "importance_weighting"
     ],
     "placement": [
+      "token",
+      "sequence",
       "multi_stage"
     ],
     "rejected_behavior": [
@@ -2530,14 +2552,14 @@
       "distribution_fidelity"
     ],
     "systems_measurements": [
-      "end_to_end_cost"
+      "not_reported"
     ],
     "outcome_measurements": [
       "task_accuracy",
-      "distribution_divergence"
+      "format_validity"
     ],
-    "review_status": "metadata_verified",
-    "evidence_note": "ACL Anthology metadata and abstract checked; posterior inference combines SMC with a syntactic tagger for target constituency structure."
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text (PDF). Treats syntactic control as posterior inference rather than masking: sequential Monte Carlo estimates the posterior over strings given a target constituency structure, with a syntactic tagger scoring whether each token keeps the hypothesis aligned to the target tree. Because the constraint enters as a weight rather than a hard mask, fluency is traded against structural match explicitly and both are reported per sample. With a good proposal distribution GPT2 and Llama3-8B become competitive with much larger models on this task."
   },
   {
     "id": "willard-louf-2023-efficient-guided-generation",

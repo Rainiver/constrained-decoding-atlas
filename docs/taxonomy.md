@@ -13,7 +13,7 @@ labels on any dimension.
 | `type` | Type correctness or typed API/program constraints. |
 | `semantic` | Property whose truth depends on meaning or program behavior. |
 | `relation` | Constraint across two or more generated values. |
-| `state` | Validity depends on mutable environment state. |
+| `state` | Validity depends on runtime environment state that can vary independently of the declared schema or current input (for example, database, tool, or repository state). Input-conditioned alternatives drawn from a fixed knowledge base do not qualify by themselves. |
 | `policy` | Authorization, safety, or organizational rule. |
 
 ## 2. Executable representation

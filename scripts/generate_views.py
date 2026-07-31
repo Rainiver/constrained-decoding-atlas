@@ -75,7 +75,7 @@ SPEC_ROWS = [
     ("Lexical", "lexical"),
     ("Types", "type"),
     ("Relations across fields", "relation"),
-    ("**Mutable world state**", "state"),
+    ("**Runtime environment state**", "state"),
     ("**Policy / authorization**", "policy"),
 ]
 PLACE_ROWS = [
@@ -132,7 +132,7 @@ def write_readme_stats() -> None:
         "",
         f"**Catalog signal:** {count('specification', 'syntax')}/{n} works constrain syntax and "
         f"{count('placement', 'token')}/{n} intervene token by token, while only "
-        f"{count('specification', 'state')} model mutable state, "
+        f"{count('specification', 'state')} model runtime environment state, "
         f"{count('specification', 'relation')} cross-field relations, "
         f"{count('specification', 'policy')} policy or authorization, and "
         f"{count('rejected_behavior', 'repair')} in-place repair.",
