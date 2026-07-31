@@ -60,10 +60,17 @@ python3 scripts/validate_catalog.py
 
 The same check runs on every pull request.
 
+## License
+
+- Validation and generation code: [MIT](LICENSE).
+- Original catalog annotations and documentation: [CC BY 4.0](DATA_LICENSE.md).
+- Paper titles, author names, venue metadata, and outbound links remain
+  bibliographic facts or third-party material; this repository does not
+  redistribute paper text.
+
 ## Near-term target
 
 The first public milestone is 30 heterogeneous, full-text-coded papers across
 formal-language decoding, probabilistic constrained inference, serving
 systems, structured-output benchmarks, and runtime enforcement. Static views
 and coverage dashboards will be generated only after the vocabulary is stable.
-
