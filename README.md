@@ -6,10 +6,10 @@
 
 **Papers and engines across constrained decoding, organized by what is constrained, where enforcement acts, and what is guaranteed.**
 
-62 papers · 62 read in full · 2017–2026
+63 papers · 63 read in full · 2017–2026
 
-[![Catalog](https://img.shields.io/badge/catalog-62%20papers-58e1d5)](#papers)
-[![Full text reviewed](https://img.shields.io/badge/full--text%20reviewed-62%2F62-6ee7b7)](#papers)
+[![Catalog](https://img.shields.io/badge/catalog-63%20papers-58e1d5)](#papers)
+[![Full text reviewed](https://img.shields.io/badge/full--text%20reviewed-63%2F63-6ee7b7)](#papers)
 [![Validate](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/validate.yml/badge.svg)](https://github.com/Rainiver/constrained-decoding-atlas/actions/workflows/validate.yml)
 [![CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-ae8cff)](DATA_LICENSE.md)
 
@@ -30,19 +30,19 @@ Updated 2026-08-01 — see [CHANGELOG](CHANGELOG.md).
 
 | What gets constrained | Papers | | Where enforcement acts | Papers |
 |---|---:|---|---|---:|
-| Syntax | 47 (76%) || Token | 48 (77%) |
-| Schema | 31 (50%) || Multi-stage | 25 (40%) |
-| Semantics | 24 (39%) || Completed sequence | 13 (21%) |
-| Lexical | 15 (24%) || **Field / span** | 5 (8%) |
+| Syntax | 48 (76%) || Token | 48 (76%) |
+| Schema | 31 (49%) || Multi-stage | 25 (40%) |
+| Semantics | 24 (38%) || Completed sequence | 14 (22%) |
+| Lexical | 16 (25%) || **Field / span** | 5 (8%) |
 | Types | 5 (8%) || | |
 | Relations across fields | 12 (19%) || **What happens to a rejected token** | |
 | **Runtime environment state** | 5 (8%) || Masked or pruned | 54 |
-| **Policy / authorization** | 1 (2%) || Resampled or regenerated | 11 |
+| **Policy / authorization** | 1 (2%) || Resampled or regenerated | 12 |
 | | || **Repaired in place** | **1** |
 
-**Catalog signal:** 47/62 works constrain syntax and 48/62 intervene token by token, while only 5 model runtime environment state, 12 cross-field relations, 1 policy or authorization, and 1 in-place repair.
+**Catalog signal:** 48/63 works constrain syntax and 48/63 intervene token by token, while only 5 model runtime environment state, 12 cross-field relations, 1 policy or authorization, and 1 in-place repair.
 
-*Boundary: 62 papers have been checked against full text; the inventory also includes provisional discovery records. Counts describe this catalog, not field-wide prevalence.*
+*Boundary: 63 papers have been checked against full text; the inventory also includes provisional discovery records. Counts describe this catalog, not field-wide prevalence.*
 
 <!-- STATS:END -->
 
@@ -97,7 +97,7 @@ coverage, quality, and performance across structured-output engines.
 
 ### The frontier: constraints that depend on state, relations, or policy
 
-Works addressing state-, relation-, or policy-dependent constraints. 16 of 62 records.
+Works addressing state-, relation-, or policy-dependent constraints. 16 of 63 records.
 
 | Year | Work | Constrains | Enforced at | Represented as |
 |---:|---|---|---|---|
@@ -120,7 +120,7 @@ Works addressing state-, relation-, or policy-dependent constraints. 16 of 62 re
 
 ### Full catalog
 
-All 62 records, newest first.
+All 63 records, newest first.
 
 | Year | Work | Constrains | Enforced at | Represented as |
 |---:|---|---|---|---|
@@ -166,6 +166,7 @@ All 62 records, newest first.
 | 2024 | [Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models](https://arxiv.org/abs/2408.02442) † · EMNLP 2024 Industry Track | syntax, schema | token, multi-stage | CFG, varies |
 | 2024 | [Sketch-Guided Constrained Decoding for Boosting Blackbox Large Language Models without Logit Access](https://arxiv.org/abs/2401.09967) † · ACL 2024 | syntax, schema, relation | multi-stage | CFG |
 | 2024 | [SynCode: LLM Generation with Grammar Augmentation](https://arxiv.org/abs/2403.01632) † | syntax, schema | token | FSM, CFG, token index |
+| 2024 | [Translate-and-Revise](https://aclanthology.org/2024.ccl-1.82/) † · CCL 2024 | lexical, syntax | sequence | program |
 | 2024 | [We Need Structured Output](https://doi.org/10.1145/3613905.3650756) † · CHI Extended Abstracts | syntax, schema, semantic +1 | multi-stage | varies |
 | 2024 | [XGrammar](https://arxiv.org/abs/2411.15100) † | syntax, schema | token | CFG, PDA, token index |
 | 2023 | [Don't Fine-Tune, Decode](https://arxiv.org/abs/2310.07075) † | syntax, schema | token | FSM, token index |

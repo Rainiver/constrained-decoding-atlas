@@ -3251,5 +3251,58 @@
     ],
     "review_status": "full_text_coded",
     "evidence_note": "Full text and TMLR record. Benchmarks generation and conversion for 18 renderable and non-renderable formats across 44 task types, using format-specific parsers, key validation, and rendered-output assessment. It evaluates structural fidelity of completed outputs rather than enforcing constraints during generation, so no masking behavior or language guarantee is inferred."
+  },
+  {
+    "id": "huang-et-al-2024-translate-and-revise",
+    "title": "Translate-and-Revise: Boosting Large Language Models for Constrained Translation",
+    "year": 2024,
+    "authors": [
+      "Pengcheng Huang",
+      "Yongyu Mu",
+      "Yuzhang Wu",
+      "Bei Li",
+      "Chunyang Xiao",
+      "Tong Xiao",
+      "Jingbo Zhu"
+    ],
+    "venue": "CCL 2024",
+    "publication_status": "peer_reviewed",
+    "study_type": [
+      "method",
+      "evaluation",
+      "application"
+    ],
+    "url": "https://aclanthology.org/2024.ccl-1.82/",
+    "code_url": null,
+    "specification": [
+      "lexical",
+      "syntax"
+    ],
+    "representation": [
+      "programmatic"
+    ],
+    "allocation": [
+      "deterministic_validation",
+      "retry"
+    ],
+    "placement": [
+      "sequence"
+    ],
+    "rejected_behavior": [
+      "regenerate"
+    ],
+    "guarantees": [
+      "not_reported"
+    ],
+    "systems_measurements": [
+      "latency",
+      "end_to_end_cost"
+    ],
+    "outcome_measurements": [
+      "task_accuracy",
+      "format_validity"
+    ],
+    "review_status": "full_text_coded",
+    "evidence_note": "Full text: Sections 2.1-2.2, Figure 2 (pp. 1060-1062), and Section 3.1's detection paragraph (p. 1063) describe rule-based checks on completed translations followed by LLM revision with unmet constraints until completion or an iteration limit: sequence-level validation/retry that regenerates complete translations, without token masking or in-place span repair. Section 3.1 and Tables 2-5 (pp. 1062-1064) evaluate lexical constraints and XML markup using translation, constraint-completion, and parser-validity metrics; Appendix A and Tables 9-10 (p. 1072) measure processing time and monetary cost, while constraint satisfaction is empirical and no hard satisfaction or distributional guarantee is assigned."
   }
 ]
